@@ -1,0 +1,2 @@
+# StickmanJoe
+  Its a stick character that reacts to gifts sent on TikTok. The “StickmanJoe” will start of with a default state (It must have a rich set of default animations). When a gift event occurs, there have to be an animation associated with that gift. The game will have a background and Joe will sometimes move to the left and right (background moves as Joe moves)  and sometimes they might be something on the floor and sometimes joe will interact with that thing or might pass by it. 
