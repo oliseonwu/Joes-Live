@@ -669,7 +669,7 @@ Transform:
   - {fileID: 323532955}
   m_Father: {fileID: 1670242857}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.678}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.79}
 --- !u!1 &379267623
 GameObject:
   m_ObjectHideFlags: 0
