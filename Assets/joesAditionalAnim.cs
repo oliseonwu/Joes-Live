@@ -9,8 +9,7 @@ public class joesAditionalAnim : MonoBehaviour
     private Animator _animator;
     
     //Params
-    private string A_RoseInMouth = "A_RoseInMouth";
-    public bool leaveRoseInMouth = true;
+    private string A_RoseInMouth = "A_rose(mouth)";
     void Start()
     {
         
@@ -22,11 +21,14 @@ public class joesAditionalAnim : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void  shouldRemoveRose()
+    public void wearRose()
     {
-        // if you want the rose to stay on
-       if(leaveRoseInMouth){ 
-           _animator.SetBool(A_RoseInMouth, true);
-        }
+        _animator.SetBool(A_RoseInMouth, true);
     }
+    
+    public void removeRose()
+    {
+        _animator.SetBool(A_RoseInMouth, false);
+    }
+   
 }
