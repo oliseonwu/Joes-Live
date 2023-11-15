@@ -5,16 +5,23 @@ public class AnimationManager : MonoBehaviour
 {
     // Start is called before the first frame update
     // lets say the next animation is roseInMouth
-    private Animator _animator;
+    public GameObject spawnPoint1;
+    public GameObject angryCloud;
+
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        spawnAngryCloud();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void spawnAngryCloud()
+    {
+        Instantiate(angryCloud, spawnPoint1.transform.position, Quaternion.identity);
     }
     
     

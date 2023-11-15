@@ -5,20 +5,19 @@ using UnityEngine;
 
 public class joesAditionalAnim : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Animator _animator;
-    
-    //Params
     private string A_RoseInMouth = "A_rose(mouth)";
+    public GameObject spawnPoint1; 
+
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _animator = GetComponent<Animator>();
+        
     }
 
     public void wearRose()
