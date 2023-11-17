@@ -2214,23 +2214,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.0006196797
+      value: 0.00062817335
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.0013391674
+      value: -0.0013304353
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.z
-      value: -0.0000011920929
+      value: 0.00000071525574
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.26865527
+      value: 0.26865566
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.12302064
+      value: 0.1230209
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.z
@@ -2875,7 +2875,7 @@ PrefabInstance:
     - target: {fileID: 5222758326940525467, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1225794974410792729, guid: 9e7421b4a7cfc9143bd612bbec126528, type: 3}
+      objectReference: {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
     - target: {fileID: 5222758326940525467, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Enabled
       value: 1
