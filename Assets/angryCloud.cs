@@ -10,16 +10,19 @@ public class angryCloud : MonoBehaviour
     public GameObject electricity;
     private Vector3 startPos; 
     [Range(1, 100)] public float moveSpeed;
-    private enum State{MOVE_LEFT, IDEL, MOVE_RIGHT};
-
-    private State cloudState = State.MOVE_LEFT;
     public Animator animator;
     public static event Action shockAnimEvent;
+    private AudioSource[] _audioSourceList;
+    public AudioClip[] SoundList;
+    private enum State{MOVE_LEFT, IDEL, MOVE_RIGHT};
+    private State cloudState = State.MOVE_LEFT;
     void Start()
     {
         startPos = gameObject.transform.position;
-        Debug.Log(startPos);
         rb = GetComponent<Rigidbody>();
+        _audioSourceList = GetComponents<AudioSource>();
+        _audioSourceList[0].loop = true;
+        _audioSourceList[0].PlayOneShot(SoundList[0]);
     }
     
 
@@ -68,6 +71,7 @@ public class angryCloud : MonoBehaviour
             shockAnimEvent?.Invoke();
             electricity.gameObject.SetActive(true);
             StartCoroutine(leave());
+            _audioSourceList[1].PlayOneShot(SoundList[1]);
 
         }
     }
@@ -76,7 +80,7 @@ public class angryCloud : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         electricity.gameObject.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
+        // yield return new WaitForSeconds(0.5f);
         cloudState = State.MOVE_RIGHT;
         animator.SetBool("Shock", false);
         animator.SetBool("smirk & look left", true);
