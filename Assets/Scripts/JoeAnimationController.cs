@@ -4,18 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class joesAditionalAnim : MonoBehaviour
+public class JoeAnimationController : MonoBehaviour
 {
     private Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";
     public GameObject spawnPoint1;
     private int randomNumber;
-    private AudioSource _audioSource;
-    public AudioClip[] _sounds;
+    
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
         subscribeToEvents();
     }
 
@@ -40,11 +38,6 @@ public class joesAditionalAnim : MonoBehaviour
     public void wearRose()
     {
         _animator.SetBool(A_RoseInMouth, true);
-    }
-
-    public void ayySound1()
-    {
-        _audioSource.PlayOneShot(_sounds[0]);
     }
 
     

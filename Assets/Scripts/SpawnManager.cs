@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class AnimationManager : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
     // lets say the next animation is roseInMouth
