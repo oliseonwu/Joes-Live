@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,14 +38,17 @@ public class JoeSoundController : MonoBehaviour
     {
         _audioSourceList[1].PlayOneShot(_sounds[4]);
     }
-
     public void LonguuffSound()
     {
         _audioSourceList[0].PlayOneShot(_sounds[5]);
     }
-    
     public void UffSound()
     {
         _audioSourceList[0].PlayOneShot(_sounds[6]);
     }
+    public void PickUpAttachment()
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[7]);
+    }
+    
 }
