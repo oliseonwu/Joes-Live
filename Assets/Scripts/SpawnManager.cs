@@ -9,7 +9,6 @@ public class SpawnManager : MonoBehaviour
     public GameObject spawnPoint1;
     public GameObject angryCloud;
     public Boolean spawnAngryCloud;
-    public JoeAnimationController Joe;
     void Start()
     {
         
