@@ -71,7 +71,8 @@ public class angryCloud : MonoBehaviour
             shockAnimEvent?.Invoke();
             electricity.gameObject.SetActive(true);
             StartCoroutine(leave());
-            _audioSourceList[1].PlayOneShot(SoundList[1]);
+            SoundManager.Instance.PlaySound(SoundList[1],1);
+            // _audioSourceList[1].PlayOneShot(SoundList[1]);
 
         }
     }
