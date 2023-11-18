@@ -1797,6 +1797,17 @@ AnimationClip:
     path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/upperMid_Bone5/lip_Bone_1/lip_Bone_2/lipHolder
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: 1e698a2cd96b7b9448467c5ea5da89c9, type: 3}
+    - time: 0.8833333
+      value: {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    attribute: m_Sprite
+    path: lip.png
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -2008,6 +2019,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
+      path: 1005012285
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
       path: 3372790934
       attribute: 1
       script: {fileID: 0}
@@ -2191,6 +2209,9 @@ AnimationClip:
     - {fileID: 21300000, guid: baaab5ab75500d5469efd22ce7715865, type: 3}
     - {fileID: 21300000, guid: baaab5ab75500d5469efd22ce7715865, type: 3}
     - {fileID: 0}
+    - {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - {fileID: 21300000, guid: 1e698a2cd96b7b9448467c5ea5da89c9, type: 3}
+    - {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

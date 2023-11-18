@@ -1467,7 +1467,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 0, z: -0.227}
+        value: {x: 0, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1989,10 +1989,19 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 0.15
+        value: {x: 0.3425759, y: 0.3933885, z: 0.3746558}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
         time: 0.41666666
         value: {x: 0.3746558, y: 0.37465575, z: 0.3746558}
-        inSlope: {x: 0.09319968, y: -0.03875749, z: 0}
-        outSlope: {x: 0.09319968, y: -0.03875749, z: 0}
+        inSlope: {x: 0.12870431, y: -0.05352225, z: 0}
+        outSlope: {x: 0.12870431, y: -0.05352225, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -2298,6 +2307,17 @@ AnimationClip:
     path: left eye.png
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - time: 0.016666668
+      value: {fileID: 21300000, guid: 1e698a2cd96b7b9448467c5ea5da89c9, type: 3}
+    - time: 0.55
+      value: {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    attribute: m_Sprite
+    path: lip.png
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -2530,6 +2550,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
+      path: 1005012285
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
       path: 3372790934
       attribute: 1
       script: {fileID: 0}
@@ -2704,6 +2731,9 @@ AnimationClip:
     - {fileID: -4254460238080228444, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
     - {fileID: 21300000, guid: 1aea477d2a4bcad42a9d11f691dc45b3, type: 3}
     - {fileID: -4254460238080228444, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - {fileID: 21300000, guid: 1e698a2cd96b7b9448467c5ea5da89c9, type: 3}
+    - {fileID: 1225794974410792729, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -2747,10 +2777,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.15
+        value: 0.3425759
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.41666666
         value: 0.3746558
-        inSlope: 0.09319968
-        outSlope: 0.09319968
+        inSlope: 0.12870431
+        outSlope: 0.12870431
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -2811,10 +2850,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.15
+        value: 0.3933885
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.41666666
         value: 0.37465575
-        inSlope: -0.03875749
-        outSlope: -0.03875749
+        inSlope: -0.05352225
+        outSlope: -0.05352225
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -2867,6 +2915,15 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.016666668
+        value: 0.3746558
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.15
         value: 0.3746558
         inSlope: 0
         outSlope: 0
@@ -8289,7 +8346,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.227
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -9550,7 +9607,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
+    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9560,7 +9617,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
+    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9570,7 +9627,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
+    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9580,7 +9637,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9590,7 +9647,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9600,7 +9657,67 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9850,7 +9967,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9860,7 +9977,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9870,7 +9987,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9880,7 +9997,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9890,7 +10007,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -9900,7 +10017,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10060,7 +10177,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10070,7 +10187,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10080,7 +10197,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10090,7 +10207,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10100,7 +10217,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10110,7 +10227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10390,7 +10507,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10400,7 +10517,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10410,7 +10527,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/leftThigh_Bone_1/leftThigh_Bone_2/leftThigh_Bone_3/leftThigh_Bone_4/leftLeg_bone_1/leftLeg_bone_2/leftLeg_bone_3/leftLeg_bone_4/leftToe_bone_1/leftToe_bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10420,7 +10537,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10430,7 +10547,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10440,7 +10557,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10480,7 +10627,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10490,7 +10637,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10500,7 +10647,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/rightArm_Bone1/rightArm_Bone_2/rightArm_Bone_3/rightArm_Bone_4/rightForearm_Bone_1
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10540,36 +10687,6 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
     path: LowerMid_Bone_1
     classID: 4
     script: {fileID: 0}
@@ -10600,7 +10717,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10610,7 +10727,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10620,7 +10737,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
+    path: LowerMid_Bone_1/LowerMid_Bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10750,7 +10867,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10760,7 +10877,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10770,7 +10887,27 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7
+    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -10780,87 +10917,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2/LowerMid_Bone_3/LowerMid_Bone_4/LowerMid_Bone_5/LowerMid_Bone_6/LowerMid_Bone_7/LowerMid_Bone_8/upperMid_Bone_1/upperMid_Bone_21/upperMid_Bone_3/upperMid_Bone_4/leftArm_Bone_1/leftArm_Bone_2/leftArm_Bone_3/leftArm_Bone_4/leftForearm_Bone_1/leftForearm_Bone_2/leftForearm_Bone_3
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: LowerMid_Bone_1/LowerMid_Bone_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: LowerMid_Bone_1/LowerMid_Bone_2
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: LowerMid_Bone_1/LowerMid_Bone_2
+    path: LowerMid_Bone_1/rightThigh_Bone_1/rightThigh_Bone_2/rightThigh_Bone_3/rightThigh_Bone_4/rightLeg_bone_1/rightLeg_bone_2/rightLeg_bone_3/rightLeg_bone_4/rightToe_bone_1/rightToe_bone_2
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
