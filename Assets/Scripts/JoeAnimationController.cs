@@ -30,6 +30,10 @@ public class JoeAnimationController : MonoBehaviour
     {
         _animator.SetBool("Sad", false); 
     }
+    public void Afraid1()
+    {
+        _animator.SetTrigger("Afraid (1)"); 
+    }
 
     public void lipLayerBlendAmmount(float ammount)
     {
