@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class JoeAnimationController : MonoBehaviour
+public class JoeAnimationApi : MonoBehaviour
 {
     private Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";

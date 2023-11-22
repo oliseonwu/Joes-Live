@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JoeSoundController : MonoBehaviour
+public class JoeSoundApi : MonoBehaviour
 {
     private AudioSource[] _audioSourceList;
     public AudioClip[] _sounds;
