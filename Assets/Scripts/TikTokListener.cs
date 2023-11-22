@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using WebSocketSharp;
 using UnityEngine;
 
 public class TikTokListener : MonoBehaviour
 {
-    private WebSocket ws; 
+    private WebSocket ws;
+    public GiftBatchHandler giftBatchHandler;
     void Start()
     {
         ws = new WebSocket("ws://localhost:8080");
@@ -14,9 +17,20 @@ public class TikTokListener : MonoBehaviour
         
     }
 
-    void OnMessageReceived(object Serverws,  MessageEventArgs e) 
+    void OnMessageReceived(object Serverws,  MessageEventArgs e)
     {
-        Debug.Log(e.Data);
+         String[] data = e.Data.Split(",");
+
+             Debug.Log($"{data[0]}, {data[1]}, {data[2]}");
+        
+        
+        if (data[0].Trim().Equals("gift") )
+        {
+            giftBatchHandler.addToGiftContainer(data[2], 1);
+        }
+        
+        
+        // {"type":"gift","uniqueId":"1rabbitcatcher","giftName":"Rose"}
     }
 
     

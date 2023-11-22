@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Sight : MonoBehaviour
 {
-    public JoeAnimationController JoeAnimationController;
-    public JoeSoundController JoeSoundController;
+    [FormerlySerializedAs("JoeAnimationController")] public JoeAnimationApi joeAnimationApi;
+    [FormerlySerializedAs("JoeSoundController")] public JoeSoundApi joeSoundApi;
     private int randomNumber;
     private int randomNumber2;
     // Start is called before the first frame update
@@ -33,16 +34,16 @@ public class Sight : MonoBehaviour
             // makes Joe afraid
             if (randomNumber == 1)
             {
-                JoeAnimationController.Afraid1();
+                joeAnimationApi.Afraid1();
                 
                 // Long aufffff sound
-                JoeSoundController.LonguuffSound();
+                joeSoundApi.LonguuffSound();
             }
             else
             {
                 if (randomNumber2 == 0)
                 {
-                    JoeSoundController.UffSound();
+                    joeSoundApi.UffSound();
                 }
             }
 
