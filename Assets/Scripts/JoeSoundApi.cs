@@ -30,6 +30,10 @@ public class JoeSoundApi : MonoBehaviour
     {
         _audioSourceList[0].PlayOneShot(_sounds[3]);
     }
+    public void WhooshSoundMidPitch()
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[8]);
+    }
     public void GroundImpact()
     {
         _audioSourceList[0].PlayOneShot(_sounds[2]);
@@ -49,6 +53,11 @@ public class JoeSoundApi : MonoBehaviour
     public void PickUpAttachment()
     {
         _audioSourceList[0].PlayOneShot(_sounds[7]);
+    }
+    
+    public void WhipSound()
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[9]);
     }
     
 }
