@@ -205,7 +205,7 @@ SpriteRenderer:
   m_Size: {x: 2.88, y: 6.85}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &102140340
@@ -548,7 +548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205556458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6398764, y: 3.3285332, z: -9.115503}
+  m_LocalPosition: {x: 3.6398764, y: 3.3285332, z: -0.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1594,15 +1594,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.37820053
+      value: 0.3782005
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.37820047
+      value: 0.3782005
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.37820053
+      value: 0.3782005
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4671,8 +4671,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 51
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -4697,7 +4697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0.8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4729,7 +4729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963232955}
   m_LocalRotation: {x: -0, y: -0, z: -0.18936014, w: 0.98190767}
-  m_LocalPosition: {x: 0.02399999, y: 0.03700006, z: 0.36298332}
+  m_LocalPosition: {x: 0.019, y: 0.024, z: 0.36298332}
   m_LocalScale: {x: 0.5962021, y: 1.0058441, z: 1.0058447}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5043,7 +5043,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101677343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.12, y: 4.246719, z: 0}
+  m_LocalPosition: {x: 4.12, y: 4.246719, z: 7.81}
   m_LocalScale: {x: 0.90355724, y: 0.90355724, z: 0.90355724}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5903,7 +5903,7 @@ SpriteMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537670019}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
