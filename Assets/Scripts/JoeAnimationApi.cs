@@ -58,10 +58,10 @@ public class JoeAnimationApi : MonoBehaviour
         switch (randomNumber)
         {
             case 1:
-                _animator.SetTrigger("shock2");
+                _animator.SetTrigger("G_Shock2");
                 break;
             default:
-                _animator.SetTrigger("shock");
+                _animator.SetTrigger("G_Shock");
                 break;
         }
         
