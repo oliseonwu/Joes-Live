@@ -12059,7 +12059,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-    data: 
   - time: 3.5
     functionName: WhooshSoundHighPitch
     data: 
