@@ -872,6 +872,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: Cow boy
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Pose
@@ -991,7 +997,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Cowboy
+    m_ConditionEvent: Cow boy
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8961944523142430379}
@@ -1006,7 +1012,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1102 &711204322104093579
 AnimatorState:
   serializedVersion: 6
@@ -1194,10 +1200,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: Cowboy
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4493666861882304311}
   m_Solo: 0
@@ -1206,8 +1209,8 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -1528,7 +1531,7 @@ AnimatorStateMachine:
     m_Position: {x: 509.3474, y: 37.20691, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1054325271136124396}
-    m_Position: {x: 110, y: -80, z: 0}
+    m_Position: {x: 60, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8961944523142430379}
     m_Position: {x: 40, y: -170, z: 0}
@@ -1628,7 +1631,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cowboy stands
+  m_Name: Cowboy 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1642,7 +1645,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 46a46550941b7b64ba3715b6b1aec97b, type: 2}
+  m_Motion: {fileID: 7400000, guid: c557fe97295509a44bf773c865af69f8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
