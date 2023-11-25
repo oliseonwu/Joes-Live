@@ -8,9 +8,8 @@ public class JoeAnimationApi : MonoBehaviour
 {
     private Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";
-    public GameObject spawnPoint1;
     private int randomNumber;
-    
+
     void Start()
     {
         _animator = GetComponent<Animator>();
@@ -22,6 +21,13 @@ public class JoeAnimationApi : MonoBehaviour
     {
         
     }
+    
+
+    private void G_roseAnim_1()
+    {
+        _animator.SetTrigger(JoesAnimParameters.G_roseTrigger);
+    }
+    
     public void sad()
     {
         _animator.SetBool("Sad", true); 
@@ -80,5 +86,18 @@ public class JoeAnimationApi : MonoBehaviour
     private void OnDestroy()
     {
         unSubscribeFromEvents();
+    }
+
+    private void PlayGiftAnim(String giftName, int option = 1)
+    {
+        // Converts gift names to the actual animations
+        switch (giftName)
+        {
+            case "Rose":
+                G_roseAnim_1();
+                break;
+            default:
+                break;
+        }
     }
 }

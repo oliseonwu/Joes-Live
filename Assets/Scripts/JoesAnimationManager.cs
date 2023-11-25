@@ -26,14 +26,20 @@ public class JoesAnimationManager : MonoBehaviour
             DisplayCollectedGifts();
         }
     }
+    
+    
+    
+    
 
     private void CollectGifts()
     {
-        // if (collectedGifts.Count > 0)
-        // {
-        //     alertRecieved = true;
-        //     return;
-        // }
+        if (collectedGifts.Count > 0)
+        {
+            // Make a note that we got an
+            // alert from the GiftBatchHandler
+            alertRecieved = true;
+            return;
+        }
 
         alertRecieved = false;
         
