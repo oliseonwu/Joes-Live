@@ -21,12 +21,12 @@ public class TikTokListener : MonoBehaviour
     {
          String[] data = e.Data.Split(",");
 
-             Debug.Log($"{data[0]}, {data[1]}, {data[2]}");
+             Debug.Log($"{data[0]}, {data[1]}, {data[2]}, {data[3]}");
         
         
         if (data[0].Trim().Equals("gift") )
         {
-            giftBatchHandler.addToGiftContainer(data[2], 1);
+            giftBatchHandler.addToGiftIdContainer(data[3], 1);
         }
         
         

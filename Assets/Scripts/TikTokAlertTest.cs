@@ -27,28 +27,28 @@ public class TikTokAlertTest : MonoBehaviour
         {
             Rose = false;
             
-            giftBatchHandler.addToGiftContainer("Rose", 1);
+            giftBatchHandler.addToGiftIdContainer("5655", 1);
         }
         
         if (lightning)
         {
-            // lightning = false;
+            lightning = false;
             
-            giftBatchHandler.addToGiftContainer("Lightning Bolt", 1);
+            giftBatchHandler.addToGiftIdContainer("6652", 1);
         }
         
         if (CowBoy)
         {
-            // CowBoy = false;
+            CowBoy = false;
             
-            giftBatchHandler.addToGiftContainer("Hat and Mustache", 1);
+            giftBatchHandler.addToGiftIdContainer("6427", 1);
         }
 
         if (TakeGifts)
         {
             TakeGifts = false;
 
-            giftBatchHandler.TakeGifts();
+            giftBatchHandler.TakeGiftsIds();
             
             Debug.Log("Took Gifts!");
         }

@@ -10,22 +10,25 @@ using UnityEngine;
 public class GiftBatchHandler : MonoBehaviour
 {
 
-    private ConcurrentDictionary<String, int> _giftContainer = new ConcurrentDictionary<string, int>();
+    private ConcurrentDictionary<String, int> _giftIdContainer = new ConcurrentDictionary<string, int>();
     
     
     private ConcurrentDictionary<String, int> Stash = new ConcurrentDictionary<string, int>();
 
-    private List<String> _allowedGifts = new List<string>()
-    {
-        "Rose","Lightning Bolt","Hat and Mustache", "Wide Eye Wurstie"
-    };
+    private List<String> _allowedGiftsIds = new List<string>();
+    
+        // 1- ROSE = 5655
+        // 1- Lightning Bolt = 6652
+        // 99- Hat and Mustache = 6427
+        // 5- Wide Eye Wurstie = 6774
+    
 
-    public Boolean _isGiftContainerClearing;
+    public Boolean _isGiftIdContainerClearing;
     
     private readonly object _stateLock = new object();
     private readonly object _sentAlertLock = new object();
-    public static event Action takeGiftEvent;
-    public Boolean showGiftContainer;
+    public static event Action takeGiftIdsEvent;
+    public Boolean showGiftIdContainer;
     public Boolean showStash;
     private Boolean sentAlert;
     public float updateFromStashDelay = 2f; // Delay before the first call (in seconds)
@@ -33,29 +36,39 @@ public class GiftBatchHandler : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(updateGiftContainerFromStash),
+        populateAllowedGiftIdsContainer();
+        
+        InvokeRepeating(nameof(updateGiftIdContainerFromStash),
             updateFromStashDelay, updateFromStashInterval);
+    }
+
+    private void populateAllowedGiftIdsContainer()
+    {
+        foreach (string key in TikTokGiftApi.GiftIdToName.Keys)
+        {
+            _allowedGiftsIds.Add(key);
+        }
     }
 
     private void sendAlert()
     {
      // Sends an alert that there is a gift in the 
-     // gift container
+     // gift Id container
      
      if (!SentAlert)
      {
          SentAlert = true;
-         takeGiftEvent?.Invoke();
+         takeGiftIdsEvent?.Invoke();
          Debug.Log("We have some gifts come get them!");
      }
     }
 
     private void Update()
     {
-        if (showGiftContainer)
+        if (showGiftIdContainer)
         {
-            showGiftContainer = false;
-            DisplayContainer(_giftContainer, "Gift Container");
+            showGiftIdContainer = false;
+            DisplayContainer(_giftIdContainer, "GiftID Container");
         }
 
         if (showStash)
@@ -67,19 +80,19 @@ public class GiftBatchHandler : MonoBehaviour
         
     }
 
-    public void addToGiftContainer(String TikTokGiftName, int amount)
+    public void addToGiftIdContainer(String TikTokGiftID, int amount)
     {
         
-        if (_allowedGifts.Contains(TikTokGiftName))
+        if (_allowedGiftsIds.Contains(TikTokGiftID))
         {
             
-            if (IsGiftContainerClearing)
+            if (IsGiftIdContainerClearing)
             { 
-                SafelyAddOrUpdateGiftDic(TikTokGiftName, amount, Stash, "Stash"); // add to stach
+                SafelyAddOrUpdateGiftIdDic(TikTokGiftID, amount, Stash, "Stash"); // add to stach
                 return;
             }
             
-            SafelyAddOrUpdateGiftDic(TikTokGiftName, amount, _giftContainer);
+            SafelyAddOrUpdateGiftIdDic(TikTokGiftID, amount, _giftIdContainer);
             
             // we send an alert that we have some gifts.
             sendAlert();
@@ -87,16 +100,16 @@ public class GiftBatchHandler : MonoBehaviour
     }
     
 
-    private void updateGiftContainerFromStash()
+    private void updateGiftIdContainerFromStash()
     { 
-        if (Stash.Count <= 0 || IsGiftContainerClearing)
+        if (Stash.Count <= 0 || IsGiftIdContainerClearing)
         {
             return;
         }
         
         foreach (KeyValuePair<String, int> kvp in Stash)
         {
-            SafelyAddOrUpdateGiftDic(kvp.Key, kvp.Value, _giftContainer);
+            SafelyAddOrUpdateGiftIdDic(kvp.Key, kvp.Value, _giftIdContainer);
             
             
         }
@@ -107,35 +120,35 @@ public class GiftBatchHandler : MonoBehaviour
         // we send an alert that we have some gifts.
         sendAlert();
     }
-    private void SafelyAddOrUpdateGiftDic(String TikTokGiftName, int amount,
-        ConcurrentDictionary<String, int> dic, String containerName = "gift")
+    private void SafelyAddOrUpdateGiftIdDic(String TikTokGiftID, int amount,
+        ConcurrentDictionary<String, int> dic, String containerName = "giftId")
     {
         Boolean updated = false;
 
-        if (!dic.ContainsKey(TikTokGiftName))
+        if (!dic.ContainsKey(TikTokGiftID))
         {
-            dic.TryAdd(TikTokGiftName, amount);
+            dic.TryAdd(TikTokGiftID, amount);
 
-                Debug.Log("Added "+amount+" "+TikTokGiftName +
+                Debug.Log("Added "+amount+" "+TikTokGiftApi.GiftIdToName[TikTokGiftID] +
                           $" to the {containerName} container" );
         }
         else
         {
             while (!updated)
             {
-                int tempInt = dic[TikTokGiftName];
+                int tempInt = dic[TikTokGiftID];
                 
-                updated = dic.TryUpdate(TikTokGiftName, amount + tempInt 
+                updated = dic.TryUpdate(TikTokGiftID, amount + tempInt 
                     , tempInt);
             }
 
-            Debug.Log("We now have "+dic[TikTokGiftName]+" "
-                          +TikTokGiftName + $" in the {containerName} Container" );
+            Debug.Log("We now have "+dic[TikTokGiftID]+" "
+                          +TikTokGiftApi.GiftIdToName[TikTokGiftID] + $" in the {containerName} Container" );
         }
 
     }
     
-    public List<String[]> TakeGifts()
+    public List<String[]> TakeGiftsIds()
     {
         List<String[]> avaliableGifts = new List<String[]>();
         int giftCount = 0;
@@ -143,7 +156,7 @@ public class GiftBatchHandler : MonoBehaviour
         //First Index is the total number of gift we are taking
         avaliableGifts.Insert(0, new String[]{"GiftCount", ""});
         
-        foreach (KeyValuePair<String, int> kvp in _giftContainer)
+        foreach (KeyValuePair<String, int> kvp in _giftIdContainer)
         {
             if (kvp.Value >= 1)
             {
@@ -157,9 +170,9 @@ public class GiftBatchHandler : MonoBehaviour
         // first Index of avaliable Gifts
         avaliableGifts[0][1] = giftCount + "";
 
-        IsGiftContainerClearing = true;
-        _giftContainer.Clear();
-        IsGiftContainerClearing = false;
+        IsGiftIdContainerClearing = true;
+        _giftIdContainer.Clear();
+        IsGiftIdContainerClearing = false;
 
         SentAlert = false; // reset
         return avaliableGifts;
@@ -173,7 +186,7 @@ public class GiftBatchHandler : MonoBehaviour
         
         foreach (KeyValuePair<string, int> kvp in container)
         {
-            tempString += $"{kvp.Key}, Ammount: {kvp.Value},";
+            tempString += $"{TikTokGiftApi.GiftIdToName[kvp.Key]}({kvp.Key}): {kvp.Value}, ";
         }
         
         tempString += "]";
@@ -186,20 +199,20 @@ public class GiftBatchHandler : MonoBehaviour
     // helps us make sure the _isGiftContainerClearing
     // var is thread safe(Only one thread can view 
     // or update this var at a time. Others wait)
-    public bool IsGiftContainerClearing
+    public bool IsGiftIdContainerClearing
     {
         get
         {
             lock(_stateLock)
             {
-                return _isGiftContainerClearing;
+                return _isGiftIdContainerClearing;
             }
         }
         set
         {
             lock(_stateLock)
             {
-                _isGiftContainerClearing = value;
+                _isGiftIdContainerClearing = value;
             }
         }
     }
@@ -224,6 +237,6 @@ public class GiftBatchHandler : MonoBehaviour
     
     void StopUpdatingGiftContainerFromStash()
     {
-        CancelInvoke(nameof(updateGiftContainerFromStash));
+        CancelInvoke(nameof(updateGiftIdContainerFromStash));
     }
 }
