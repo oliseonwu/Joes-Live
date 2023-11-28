@@ -10,27 +10,17 @@ using UnityEngine;
 public class GiftBatchHandler : MonoBehaviour
 {
 
-    private ConcurrentDictionary<String, int> _giftIdContainer = new ConcurrentDictionary<string, int>();
+    private ConcurrentDictionary<String, int> _giftIdContainer = new ();
+    private ConcurrentDictionary<String, int> Stash = new ();
+    private List<String> _allowedGiftsIds = new ();
+    private readonly object _stateLock = new ();
+    private readonly object _sentAlertLock = new ();
     
-    
-    private ConcurrentDictionary<String, int> Stash = new ConcurrentDictionary<string, int>();
-
-    private List<String> _allowedGiftsIds = new List<string>();
-    
-        // 1- ROSE = 5655
-        // 1- Lightning Bolt = 6652
-        // 99- Hat and Mustache = 6427
-        // 5- Wide Eye Wurstie = 6774
-    
-
-    public Boolean _isGiftIdContainerClearing;
-    
-    private readonly object _stateLock = new object();
-    private readonly object _sentAlertLock = new object();
+    public bool _isGiftIdContainerClearing;
+    public bool showGiftIdContainer;
+    public bool showStash;
+    private bool _sendNotification = true;
     public static event Action takeGiftIdsEvent;
-    public Boolean showGiftIdContainer;
-    public Boolean showStash;
-    private Boolean sentAlert;
     public float updateFromStashDelay = 2f; // Delay before the first call (in seconds)
     public float updateFromStashInterval = 5f; // Interval between subsequent calls (in seconds)
 
@@ -53,13 +43,14 @@ public class GiftBatchHandler : MonoBehaviour
     private void sendAlert()
     {
      // Sends an alert that there is a gift in the 
-     // gift Id container
+     // gift Id container. We only send a notification
+     // an attempt was made to get gift from the giftIdContainer
      
-     if (!SentAlert)
+     if (SendNotification)
      {
-         SentAlert = true;
+         SendNotification = false;
+         Debug.Log($"{nameof(GiftBatchHandler)} --> We have some gifts come get them!");
          takeGiftIdsEvent?.Invoke();
-         Debug.Log("We have some gifts come get them!");
      }
     }
 
@@ -120,6 +111,7 @@ public class GiftBatchHandler : MonoBehaviour
         // we send an alert that we have some gifts.
         sendAlert();
     }
+    
     private void SafelyAddOrUpdateGiftIdDic(String TikTokGiftID, int amount,
         ConcurrentDictionary<String, int> dic, String containerName = "giftId")
     {
@@ -165,6 +157,13 @@ public class GiftBatchHandler : MonoBehaviour
                 giftCount += kvp.Value;
             }
         }
+        
+        // means GiftBag tried to take some gift but there were no gifts
+        if (giftCount == 0)
+        {
+            SendNotification = true;
+            return null;
+        }
 
         // Add the total number of gift we are taking to the 
         // first Index of avaliable Gifts
@@ -173,8 +172,7 @@ public class GiftBatchHandler : MonoBehaviour
         IsGiftIdContainerClearing = true;
         _giftIdContainer.Clear();
         IsGiftIdContainerClearing = false;
-
-        SentAlert = false; // reset
+        
         return avaliableGifts;
     }
 
@@ -217,20 +215,20 @@ public class GiftBatchHandler : MonoBehaviour
         }
     }
     
-    public bool SentAlert
+    public bool SendNotification
     {
         get
         {
             lock(_sentAlertLock)
             {
-                return sentAlert;
+                return _sendNotification;
             }
         }
         set
         {
             lock(_sentAlertLock)
             {
-                sentAlert = value;
+                _sendNotification = value;
             }
         }
     }

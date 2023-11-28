@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605743183}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00cf240aa37fdc04a992645934f43c65, type: 3}
   m_Name: 
@@ -3885,9 +3885,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181972aabebc433419a0712dabbd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giftBatchHandler: {fileID: 1575916146}
-  displayCollectedGift: 0
+  giftBag: {fileID: 701122386}
   JoeAnimationApi: {fileID: 701122380}
+--- !u!114 &701122386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701122374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e146820106a043f4f9132452701fe5c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giftBatchHandler: {fileID: 1575916146}
+  displayGiftBag: 0
+  getNextGift: 0
+  _sendNotification: 1
 --- !u!1001 &703009391
 PrefabInstance:
   m_ObjectHideFlags: 0
