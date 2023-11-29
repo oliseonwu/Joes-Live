@@ -40,31 +40,17 @@ public class JoesAnimationManager : MonoBehaviour
     public void playNextAnimation(float waitTime)
     {
         string nextGiftId = giftBag.GetNextGift();
-        
-        Debug.Log(nextGiftId);
+        Debug.Log("next giftId = "+ nextGiftId);
 
         if (nextGiftId != null)
         {
-            JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime); 
-            return;
+            JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
         }
     }
     
     private void playNextAnimation2()
     {
-        playNextAnimation(0.5f);
+        playNextAnimation(.5f);
+        
     }
-    
-    
-
-    
-
-   
-    
-    
-    
-    
-
-    
-    
 }

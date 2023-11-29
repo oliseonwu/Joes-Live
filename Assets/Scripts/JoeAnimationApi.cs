@@ -6,14 +6,14 @@ using Random = UnityEngine.Random;
 
 public class JoeAnimationApi : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";
     private int randomNumber;
     public SpawnManager spawnManager;
 
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        // _animator = GetComponent<Animator>();
         subscribeToEvents();
     }
 
@@ -23,19 +23,39 @@ public class JoeAnimationApi : MonoBehaviour
         
         
     }
-    
+    public void PlayGiftAnim(String giftId, float waitTime = 0, int option = 1 )
+    {
+        // Converts gift names to the actual animations
+        // Option is used select an animation when a gift has multiple animations.
+        // waitTime is the time in seconds to wait before playing the animation
+        switch (giftId)
+        {
+            case "5655":
+                Invoke(nameof(G_roseAnim_1), waitTime);
+                break;
+            case "6652":
+                Invoke(nameof(G_LightningBolt), waitTime);
+                break;
+            case "6427":
+                Invoke(nameof(G_HatandMustache), waitTime);
+                break;
+            default:
+                break;
+        }
+    }
 
     private void G_roseAnim_1()
     {
-        _animator.SetTrigger(JoesAnimParameters.G_roseTrigger);
+        Debug.Log("Called  G_roseAnim_1()");
+         _animator.SetTrigger(JoesAnimParameters.G_roseTrigger);
     }
 
-    private void G_LightningBolt()
+    public void G_LightningBolt()
     {
         spawnManager.SpawnAngryCloud();
     }
 
-    private void G_HatandMustache()
+    public void G_HatandMustache()
     {
         _animator.SetTrigger(JoesAnimParameters.G_HatandMustacheTrigger);
     }
@@ -121,26 +141,7 @@ public class JoeAnimationApi : MonoBehaviour
       _animator.SetBool(animationParamName, true);
     }
 
-    public void PlayGiftAnim(String giftId, float waitTime = 0, int option = 1 )
-    {
-        // Converts gift names to the actual animations
-        // Option is used select an animation when a gift has multiple animations.
-        // waitTime is the time in seconds to wait before playing the animation
-        switch (giftId)
-        {
-            case "5655":
-                Invoke(nameof(G_roseAnim_1), waitTime);
-                break;
-            case "6652":
-                Invoke(nameof(G_LightningBolt), waitTime);
-                break;
-            case "6427":
-                Invoke(nameof(G_HatandMustache), waitTime);
-                break;
-            default:
-                break;
-        }
-    }
+    
     
     
 }

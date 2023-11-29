@@ -12,7 +12,7 @@ public class TikTokGiftApi : MonoBehaviour
         {"Rose","5655"},
         {"Lightning Bolt","6652"},
         {"Hat and Mustache", "6427"},
-        {"Wide Eye Wurstie", "6774"}
+        // {"Wide Eye Wurstie", "6774"}
     };
     
     public static Dictionary<String, String> GiftIdToName = new Dictionary<string, string>
@@ -20,7 +20,7 @@ public class TikTokGiftApi : MonoBehaviour
         {"5655","Rose"},
         {"6652","Lightning Bolt"},
         {"6427", "Hat and Mustache"},
-        {"6774", "Wide Eye Wurstie"}
+        // {"6774", "Wide Eye Wurstie"}
     };
     void Start()
     {
