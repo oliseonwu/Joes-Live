@@ -66,9 +66,7 @@ public class GiftBatchHandler : MonoBehaviour
         {
             showStash = false;
             DisplayContainer(Stash, "Stash");
-            
         }
-        
     }
 
     public void addToGiftIdContainer(String TikTokGiftID, int amount)

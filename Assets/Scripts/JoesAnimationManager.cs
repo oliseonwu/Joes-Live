@@ -44,7 +44,8 @@ public class JoesAnimationManager : MonoBehaviour
 
         if (nextGiftId != null)
         {
-            JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
+            UnityMainThreadDispatcher.Enqueue(()=>JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime));
+            
         }
     }
     

@@ -23,13 +23,8 @@ public class TikTokListener : MonoBehaviour
 
         if (data[0].Trim().Equals("gift") )
         {
-            if (data[2].Trim().Equals("Rose"))
-            {
-                Debug.Log("jjjjj");
+            giftBatchHandler.addToGiftIdContainer(data[3], 1);
 
-            }
-            UnityMainThreadDispatcher.Enqueue(()=>giftBatchHandler.addToGiftIdContainer(data[3], 1));
-            
         }
         
         
