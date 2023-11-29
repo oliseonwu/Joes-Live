@@ -13,8 +13,6 @@ public class TikTokAlertTest : MonoBehaviour
 
     public Boolean TakeGifts;
     
-    public Boolean setIsGiftContainerFunct;
-
     public GiftBatchHandler giftBatchHandler;
 
     // Update is called once per frame
@@ -29,35 +27,31 @@ public class TikTokAlertTest : MonoBehaviour
         {
             Rose = false;
             
-            giftBatchHandler.addToGiftContainer("Rose", 1);
+            giftBatchHandler.addToGiftIdContainer("5655", 1);
         }
         
         if (lightning)
         {
             lightning = false;
             
-            giftBatchHandler.addToGiftContainer("Lightning Bolt", 1);
+            giftBatchHandler.addToGiftIdContainer("6652", 1);
         }
         
         if (CowBoy)
         {
             CowBoy = false;
             
-            giftBatchHandler.addToGiftContainer("Hat and Mustache", 1);
+            giftBatchHandler.addToGiftIdContainer("6427", 1);
         }
 
         if (TakeGifts)
         {
             TakeGifts = false;
 
-            giftBatchHandler.TakeGifts();
+            giftBatchHandler.TakeGiftsIds();
             
             Debug.Log("Took Gifts!");
         }
-
-        if (setIsGiftContainerFunct != giftBatchHandler.IsGiftContainerClearing)
-        {
-            giftBatchHandler.IsGiftContainerClearing = setIsGiftContainerFunct;
-        }
+        
     }
 }

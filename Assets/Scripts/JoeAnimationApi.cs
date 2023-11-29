@@ -6,14 +6,14 @@ using Random = UnityEngine.Random;
 
 public class JoeAnimationApi : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";
-    public GameObject spawnPoint1;
     private int randomNumber;
-    
+    public SpawnManager spawnManager;
+
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        // _animator = GetComponent<Animator>();
         subscribeToEvents();
     }
 
@@ -21,7 +21,50 @@ public class JoeAnimationApi : MonoBehaviour
     void Update()
     {
         
+        
     }
+    public void PlayGiftAnim(String giftId, float waitTime = 0, int option = 1 )
+    {
+        // Converts gift names to the actual animations
+        // Option is used select an animation when a gift has multiple animations.
+        // waitTime is the time in seconds to wait before playing the animation
+        switch (giftId)
+        {
+            case "5655":
+                Invoke(nameof(G_roseAnim_1), waitTime);
+                break;
+            case "6652":
+                Invoke(nameof(G_LightningBolt), waitTime);
+                break;
+            case "6427":
+                Invoke(nameof(G_HatandMustache), waitTime);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void G_roseAnim_1()
+    {
+        Debug.Log("Called  G_roseAnim_1()");
+         _animator.SetTrigger(JoesAnimParameters.G_roseTrigger);
+    }
+
+    public void G_LightningBolt()
+    {
+        spawnManager.SpawnAngryCloud();
+    }
+
+    public void G_HatandMustache()
+    {
+        _animator.SetTrigger(JoesAnimParameters.G_HatandMustacheTrigger);
+    }
+
+    private void IdleAnimation2()
+    {
+        setBool(JoesAnimParameters.Idle2);
+    }
+
     public void sad()
     {
         _animator.SetBool("Sad", true); 
@@ -58,10 +101,10 @@ public class JoeAnimationApi : MonoBehaviour
         switch (randomNumber)
         {
             case 1:
-                _animator.SetTrigger("G_Shock2");
+                _animator.SetTrigger(JoesAnimParameters.G_LightningBolt2Trigger);
                 break;
             default:
-                _animator.SetTrigger("G_Shock");
+                _animator.SetTrigger(JoesAnimParameters.G_LightningBolt1Trigger);
                 break;
         }
         
@@ -81,4 +124,24 @@ public class JoeAnimationApi : MonoBehaviour
     {
         unSubscribeFromEvents();
     }
+    
+    private void setBool(String animationParamName)
+    {
+      // It sets the checkmark for the animation param  
+      // sent in and uncheck every other bool params
+
+      List<String> setParams = JoesAnimParameters.checkedParams;
+      
+      // set all active params(Check params) disabled
+      for (int x = 0; x < setParams.Count; x++)
+      {
+          _animator.SetBool(setParams[x], false);
+      }
+      
+      _animator.SetBool(animationParamName, true);
+    }
+
+    
+    
+    
 }

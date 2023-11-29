@@ -11,8 +11,8 @@ public class TikTokListener : MonoBehaviour
     void Start()
     {
         ws = new WebSocket("ws://localhost:8080");
-        
-        ws.OnMessage += OnMessageReceived;
+
+        ws.OnMessage +=  OnMessageReceived;
         ws.Connect();
         
     }
@@ -21,12 +21,10 @@ public class TikTokListener : MonoBehaviour
     {
          String[] data = e.Data.Split(",");
 
-             Debug.Log($"{data[0]}, {data[1]}, {data[2]}");
-        
-        
         if (data[0].Trim().Equals("gift") )
         {
-            giftBatchHandler.addToGiftContainer(data[2], 1);
+            giftBatchHandler.addToGiftIdContainer(data[3], 1);
+
         }
         
         

@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnAngryCloud()
+    public void SpawnAngryCloud()
     {
         spawnAngryCloud = false;
         Instantiate(angryCloud, spawnPoint1.transform.position, Quaternion.identity);
