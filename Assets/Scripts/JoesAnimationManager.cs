@@ -39,7 +39,7 @@ public class JoesAnimationManager : MonoBehaviour
 
     public void playNextAnimation(float waitTime)
     {
-        string nextGiftId = giftBag.GetNextGift();
+        string nextGiftId = giftBag.GetARandomGift();
         Debug.Log("next giftId = "+ nextGiftId);
 
         if (nextGiftId != null)

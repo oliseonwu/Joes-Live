@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
 
 public class GiftBag : MonoBehaviour
 {
@@ -59,8 +61,12 @@ public class GiftBag : MonoBehaviour
             GetNextGiftEvent?.Invoke();
         }
     }
+    
     private void CollectMoreGifts()
     {
+        // Used to update the gift bag with gifts from the 
+        // Giftbatch handler
+        
         List<String[]> tempGiftBag = giftBatchHandler.TakeGiftsIds();
         
     
@@ -103,10 +109,31 @@ public class GiftBag : MonoBehaviour
         
         return returnedGiftId;
     }
+
+    public String GetARandomGift()
+    {
+        // randomly return a gift from the gift bag.
+
+        if (isGiftBagEmpty())
+        {
+            Print("Gift Bag empty. Attempting to get more gifts.");
+            
+            // since we came to collect gift but no gift available
+            // we tell the gift bag to alert us when a gift is available.
+            SendNotification = true;
+            
+            CollectMoreGifts();
+            
+            return null;
+        }
+        
+        return removeAGift(Random.Range(1, _giftBag.Count));
+    }
+    
     
     private String removeAGift(int giftIndex)
     {
-        // return the giftId removed or
+        // returns the giftId removed from the giftbag or
         // null if failed to remove
         
         string[] gift;
@@ -114,12 +141,13 @@ public class GiftBag : MonoBehaviour
         int giftAmmount;
         int totalGifts; 
         
+        // invalid input or empty bag case
         if (giftIndex <= 0 || isGiftBagEmpty())
         {
             return null;
         }
         
-        gift = _giftBag[giftIndex];
+        gift = _giftBag[giftIndex]; // the gift --> [giftId, giftAmmount]
         giftAmmount = int.Parse(gift[1]);
         giftId = gift[0];
         
