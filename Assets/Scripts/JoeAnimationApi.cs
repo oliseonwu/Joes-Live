@@ -8,8 +8,8 @@ public class JoeAnimationApi : MonoBehaviour
 {
     public Animator _animator;
     private string A_RoseInMouth = "A_rose(mouth)";
-    private int randomNumber;
     public SpawnManager spawnManager;
+    public JoesAnimParameters joesAnimParameters;
 
     void Start()
     {
@@ -28,6 +28,7 @@ public class JoeAnimationApi : MonoBehaviour
         // Converts gift names to the actual animations
         // Option is used select an animation when a gift has multiple animations.
         // waitTime is the time in seconds to wait before playing the animation
+        joesAnimParameters.ClearAllSetBool();
         switch (giftId)
         {
             case "5655":
@@ -40,6 +41,24 @@ public class JoeAnimationApi : MonoBehaviour
                 Invoke(nameof(G_HatandMustache), waitTime);
                 break;
             default:
+                break;
+        }
+    }
+
+    public void playIdelAnimation()
+    {
+        int randomNum = Random.Range(1, 4);
+
+        switch (randomNum)
+        {
+            case 2:
+                IdleAnimation2();
+                break;
+            case 3:
+                IdleAnimation3();
+                break;
+            default:
+                joesAnimParameters.ClearAllSetBool();
                 break;
         }
     }
@@ -61,7 +80,11 @@ public class JoeAnimationApi : MonoBehaviour
 
     private void IdleAnimation2()
     {
-        setBool(JoesAnimParameters.Idle2);
+        joesAnimParameters.setOneBool(JoesAnimParameters.Idle2);
+    }
+    private void IdleAnimation3()
+    {
+        joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
     }
 
     public void sad()
@@ -95,7 +118,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     private void shockAnimation()
     {
-        randomNumber =  Random.Range(0, 2);
+        int randomNumber =  Random.Range(0, 2);
 
         switch (randomNumber)
         {
@@ -124,21 +147,8 @@ public class JoeAnimationApi : MonoBehaviour
         unSubscribeFromEvents();
     }
     
-    private void setBool(String animationParamName)
-    {
-      // It sets the checkmark for the animation param  
-      // sent in and uncheck every other bool params
-
-      List<String> setParams = JoesAnimParameters.checkedParams;
-      
-      // set all active params(Check params) disabled
-      for (int x = 0; x < setParams.Count; x++)
-      {
-          _animator.SetBool(setParams[x], false);
-      }
-      
-      _animator.SetBool(animationParamName, true);
-    }
+    
+    
 
     
     

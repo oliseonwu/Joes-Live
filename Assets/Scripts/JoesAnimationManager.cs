@@ -8,11 +8,13 @@ public class JoesAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     private String currentAnimation = "";
     public GiftBag giftBag;
-    public JoeAnimationApi JoeAnimationApi;
+    public JoeAnimationApi joeAnimationApi;
+    public JoesAnimParameters joesAnimParameters;
     private bool _inPlayMode;
     
     void Start()
     {
+        joeAnimationApi.playIdelAnimation();
         subscribeToEvents();
     }
 
@@ -43,13 +45,16 @@ public class JoesAnimationManager : MonoBehaviour
         
         if (nextGiftId != null)
         {
-            UnityMainThreadDispatcher.Enqueue(()=>JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime));
+            joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
+            return;
         }
+        
+        joeAnimationApi.playIdelAnimation();
     }
     
     private void playNextAnimation2()
     {
-        playNextAnimation(.5f);
+        playNextAnimation(0f);
         
     }
 }
