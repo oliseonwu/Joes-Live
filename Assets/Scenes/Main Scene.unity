@@ -6156,8 +6156,12 @@ MonoBehaviour:
   _isGiftIdContainerClearing: 0
   showGiftIdContainer: 0
   showStash: 0
+  _sentActionNotification: 0
+  giftCount: 0
   updateFromStashDelay: 2
   updateFromStashInterval: 5
+  actionNotificationFrequency: 10
+  numOfGiftB4SendingActionNotification: 10
 --- !u!4 &1575916147
 Transform:
   m_ObjectHideFlags: 0

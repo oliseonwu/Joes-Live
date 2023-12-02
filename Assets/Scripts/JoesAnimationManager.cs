@@ -39,13 +39,11 @@ public class JoesAnimationManager : MonoBehaviour
 
     public void playNextAnimation(float waitTime)
     {
-        string nextGiftId = giftBag.GetNextGift();
-        Debug.Log("next giftId = "+ nextGiftId);
-
+        string nextGiftId = giftBag.GetARandomGift();
+        
         if (nextGiftId != null)
         {
             UnityMainThreadDispatcher.Enqueue(()=>JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime));
-            
         }
     }
     
