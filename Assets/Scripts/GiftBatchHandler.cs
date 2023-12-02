@@ -15,16 +15,21 @@ public class GiftBatchHandler : MonoBehaviour
     private List<String> _allowedGiftsIds = new ();
     private readonly object _stateLock = new ();
     private readonly object _sentAlertLock = new ();
+    private readonly object _sentActionNotificationLock = new();
     private readonly object _giftCountLock = new ();
+    
     
     public bool _isGiftIdContainerClearing;
     public bool showGiftIdContainer;
     public bool showStash;
     private bool _sendNotification = true;
-    
+    public bool _sentActionNotification = false; 
+    public static event Action takeGiftIdsEvent;
+    public static event Action SendActionNotificationEvent;
+
     [Tooltip("Total number of gifts we have so far.")]
     public int giftCount; 
-    public static event Action takeGiftIdsEvent;
+    
     
     [Tooltip("Delay before the first attempts to update the "+
              "_giftIdContainer from the stash (in seconds).")]
@@ -41,7 +46,7 @@ public class GiftBatchHandler : MonoBehaviour
     
     [Tooltip("Number of gift that must be received b4 sending"+
              "an action Notification")]
-    public float numOfGiftB4SendingActionNotification = 1;
+    public float numOfGiftB4SendingActionNotification = 10;
 
     private void Start()
     {
@@ -69,9 +74,23 @@ public class GiftBatchHandler : MonoBehaviour
      if (SendNotification)
      {
          SendNotification = false;
-         Debug.Log($"{nameof(GiftBatchHandler)} --> We have some gifts come get them!");
+         Utilities.Print(nameof(GiftBatchHandler), 
+             "Gifts are available when needed");
          takeGiftIdsEvent?.Invoke();
      }
+    }
+
+    /// <summary>
+    /// sends a unity event that forces the
+    /// GiftBag class to update itself with more
+    /// gifts
+    /// </summary>
+    private void SendAnActionNotificationEvent()
+    {
+        SentActionNotification = true;
+        Utilities.Print(nameof(GiftBatchHandler), "Come get more gifts now! you've waited too long");
+        SendActionNotificationEvent?.Invoke();
+        
     }
 
     private void Update()
@@ -104,6 +123,20 @@ public class GiftBatchHandler : MonoBehaviour
             
             SafelyAddOrUpdateGiftIdDic(TikTokGiftID, amount, _giftIdContainer);
             
+            
+            // we only send an Action Notification only if
+            // we have enough gifts, we havn't sent an
+            // action notification for the current batch of gifts 
+            // and GiftBag class hasn't tried to take the recent batch
+            // of gifts yet.
+            if (GiftCount >= numOfGiftB4SendingActionNotification 
+                && !SentActionNotification && !SendNotification)
+            {
+                UnityMainThreadDispatcher.Enqueue(()=>Invoke(nameof(SendAnActionNotificationEvent),actionNotificationFrequency ));
+                SentActionNotification = true;
+                return;
+            }
+            
             // we send an alert that we have some gifts.
             sendAlert();
         }
@@ -126,6 +159,21 @@ public class GiftBatchHandler : MonoBehaviour
         
         Stash.Clear();
         Debug.Log("Stash -> Gift Container SUCCESS");
+        
+        
+        // we only send an Action Notification only if
+        // we have enough gifts, we havn't sent an
+        // action gift for the current batch of gifts 
+        // and GiftBag class hasn't tried to take gift from this
+        // class yet.
+        if (GiftCount >= numOfGiftB4SendingActionNotification 
+            && !SentActionNotification && !SendNotification)
+        {
+            Invoke(nameof(SendAnActionNotificationEvent),actionNotificationFrequency );
+            SentActionNotification = true;
+            return;
+        }
+        
         
         // we send an alert that we have some gifts.
         sendAlert();
@@ -164,7 +212,6 @@ public class GiftBatchHandler : MonoBehaviour
         {
             GiftCount+= amount;
         }
-
     }
     
     public List<String[]> TakeGiftsIds()
@@ -192,6 +239,12 @@ public class GiftBatchHandler : MonoBehaviour
             return null;
         }
 
+        SentActionNotification = false;
+        // very important incase the bag Class come to take gifts
+        // before the SendAnActionNotificationEvent was fired
+        UnityMainThreadDispatcher.Enqueue(()=>
+            CancelInvoke(nameof(SendAnActionNotificationEvent)));  
+        
         // Add the total number of gift we are taking to the 
         // first Index of avaliable Gifts
         avaliableGifts[0][1] = giftCount + "";
@@ -257,6 +310,24 @@ public class GiftBatchHandler : MonoBehaviour
             lock(_sentAlertLock)
             {
                 _sendNotification = value;
+            }
+        }
+    }
+    
+    public bool SentActionNotification
+    {
+        get
+        {
+            lock(_sentActionNotificationLock)
+            {
+                return _sentActionNotification;
+            }
+        }
+        set
+        {
+            lock(_sentActionNotificationLock)
+            {
+                _sentActionNotification = value;
             }
         }
     }

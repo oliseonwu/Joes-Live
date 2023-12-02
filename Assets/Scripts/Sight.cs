@@ -28,7 +28,6 @@ public class Sight : MonoBehaviour
         randomNumber =  Random.Range(0, 2);
         randomNumber2 = Random.Range(0, 2);
 
-        Debug.Log(randomNumber);
         if (other.tag == "AngryCloud")
         {
             // makes Joe afraid

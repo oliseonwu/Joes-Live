@@ -13,12 +13,14 @@ public class GiftBag : MonoBehaviour
     // for joe to use the gift by animating to the gift
     
     private List<String[]> _giftBag = new ();
-    private readonly object _sendNotificationLock = new ();
+    private readonly object _sendNotificationLock = new();
+    private readonly object _isbusyLock = new();
     public GiftBatchHandler giftBatchHandler;
     private bool _alertRecieved;
     public bool displayGiftBag;
     public bool getNextGift;
     public bool _sendNotification = true;
+    private bool _isBusy;
     public static event Action GetNextGiftEvent;
 
     void Start()
@@ -57,7 +59,7 @@ public class GiftBag : MonoBehaviour
         if (SendNotification)
         {
             SendNotification = false;
-            Debug.Log($"{nameof(GiftBag)} --> Sent Alert!");
+            Debug.Log($"{nameof(GiftBag)} --> Gift Available!");
             GetNextGiftEvent?.Invoke();
         }
     }
@@ -73,7 +75,6 @@ public class GiftBag : MonoBehaviour
         if (tempGiftBag != null)
         {
             _giftBag = tempGiftBag;
-            Utilities.Print(nameof(GiftBag),"Gift collected!" );
             SendAlert();
         }
         else
@@ -81,6 +82,29 @@ public class GiftBag : MonoBehaviour
             Utilities.Print(nameof(GiftBag),"No gift found. Waiting..." );
         }
     }
+
+    private void ForceUpdateBag()
+    {
+        List<String[]> tempGiftBag = giftBatchHandler.TakeGiftsIds();
+
+        if (tempGiftBag == null)
+        {
+            Utilities.Print(nameof(GiftBag),"No gift found." );
+            return;
+        }
+
+        IsBusy = true;
+
+        for (int x = 1; x < tempGiftBag.Count; x++)
+        {
+            IncreaseAGiftAmount(tempGiftBag[x][0], tempGiftBag[x][1] );
+        }
+
+        IsBusy = false;
+        Utilities.Print(nameof(GiftBag),"Force update Success!" );
+        SendAlert();
+    }
+
     
     
     
@@ -93,6 +117,11 @@ public class GiftBag : MonoBehaviour
     {
         // return the next giftId
         String returnedGiftId;
+        
+        if (IsBusy)
+        {
+            return null;
+        }
 
         returnedGiftId = removeAGift(1);
         
@@ -114,6 +143,15 @@ public class GiftBag : MonoBehaviour
     {
         // randomly return a gift from the gift bag.
 
+        if (IsBusy)
+        {
+            // since we came to collect gift but the Giftbag is busy
+            // we can tell the gift bag to alert us when the GiftBag class is free.
+            SendNotification = true;
+            
+            return null;
+        }
+        
         if (isGiftBagEmpty())
         {
             Print("Gift Bag empty. Attempting to get more gifts.");
@@ -130,6 +168,35 @@ public class GiftBag : MonoBehaviour
         return removeAGift(Random.Range(1, _giftBag.Count));
     }
     
+    private void IncreaseAGiftAmount(String giftId, String amount)
+    {
+        string[] gift = null;
+        
+        //check for the giftId in the gift bag
+        for (int x = 1; x < _giftBag.Count; x++)
+        {
+            if (_giftBag[x][0] == giftId)
+            {
+                gift = _giftBag[x];
+                x = _giftBag.Count; // break for loop
+            }
+            
+        }
+
+        // if found, increament the Gift amount with amount var
+        if (gift != null)
+        {
+            gift[1] = int.Parse(gift[1]) + int.Parse(amount)+"";
+        }
+        else
+        {
+            _giftBag.Add(new []{giftId, amount+""});
+        }
+        // else we add the gift as a new gift to the bag
+
+
+
+    }
     
     private String removeAGift(int giftIndex)
     {
@@ -197,11 +264,13 @@ public class GiftBag : MonoBehaviour
     private void subscribeToEvents()
     {
         GiftBatchHandler.takeGiftIdsEvent += CollectMoreGifts;
+        GiftBatchHandler.SendActionNotificationEvent += ForceUpdateBag;
     }
 
     private void unSubscribeFromEvents()
     {
         GiftBatchHandler.takeGiftIdsEvent-= CollectMoreGifts;
+        GiftBatchHandler.SendActionNotificationEvent -= ForceUpdateBag;
     }
     
     private void OnDestroy()
@@ -223,6 +292,24 @@ public class GiftBag : MonoBehaviour
             lock(_sendNotificationLock)
             {
                 _sendNotification = value;
+            }
+        }
+    }
+    
+    private  bool IsBusy
+    {
+        get
+        {
+            lock(_isbusyLock)
+            {
+                return _isBusy;
+            }
+        }
+        set
+        {
+            lock(_isbusyLock)
+            {
+                _isBusy = value;
             }
         }
     }
