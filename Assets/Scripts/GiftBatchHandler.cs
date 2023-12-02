@@ -15,14 +15,33 @@ public class GiftBatchHandler : MonoBehaviour
     private List<String> _allowedGiftsIds = new ();
     private readonly object _stateLock = new ();
     private readonly object _sentAlertLock = new ();
+    private readonly object _giftCountLock = new ();
     
     public bool _isGiftIdContainerClearing;
     public bool showGiftIdContainer;
     public bool showStash;
     private bool _sendNotification = true;
+    
+    [Tooltip("Total number of gifts we have so far.")]
+    public int giftCount; 
     public static event Action takeGiftIdsEvent;
-    public float updateFromStashDelay = 2f; // Delay before the first call (in seconds)
-    public float updateFromStashInterval = 5f; // Interval between subsequent calls (in seconds)
+    
+    [Tooltip("Delay before the first attempts to update the "+
+             "_giftIdContainer from the stash (in seconds).")]
+    public float updateFromStashDelay = 2f; 
+    
+    [Tooltip("Interval between subsequent attempts to update"+
+             " _giftIdContainer from the stash (in seconds).")]
+    public float updateFromStashInterval = 5f;
+    
+    [Tooltip("wait time before this class sends a unity event"+
+             " that forces the GiftBag class to update itself"+ 
+             " with more gifts (in seconds).")]
+    public float actionNotificationFrequency = 20f; 
+    
+    [Tooltip("Number of gift that must be received b4 sending"+
+             "an action Notification")]
+    public float numOfGiftB4SendingActionNotification = 1;
 
     private void Start()
     {
@@ -42,9 +61,10 @@ public class GiftBatchHandler : MonoBehaviour
 
     private void sendAlert()
     {
-     // Sends an alert that there is a gift in the 
-     // gift Id container. We only send a notification
-     // an attempt was made to get gift from the giftIdContainer
+     // Sends an alert that there is a gift in the gift Id
+     // container. We only send a notification if GiftBag
+     // class attempts to get gifts from the
+     // giftIdContainer using TakeGiftsIds()
      
      if (SendNotification)
      {
@@ -56,6 +76,7 @@ public class GiftBatchHandler : MonoBehaviour
 
     private void Update()
     {
+        
         if (showGiftIdContainer)
         {
             showGiftIdContainer = false;
@@ -118,7 +139,7 @@ public class GiftBatchHandler : MonoBehaviour
         if (!dic.ContainsKey(TikTokGiftID))
         {
             dic.TryAdd(TikTokGiftID, amount);
-
+            
                 Debug.Log("Added "+amount+" "+TikTokGiftApi.GiftIdToName[TikTokGiftID] +
                           $" to the {containerName} container" );
         }
@@ -132,8 +153,16 @@ public class GiftBatchHandler : MonoBehaviour
                     , tempInt);
             }
 
+            
             Debug.Log("We now have "+dic[TikTokGiftID]+" "
-                          +TikTokGiftApi.GiftIdToName[TikTokGiftID] + $" in the {containerName} Container" );
+                      +TikTokGiftApi.GiftIdToName[TikTokGiftID] + $" in the {containerName} Container" );
+        }
+
+        // we only want to increment the amount of gifts if 
+        // we added the gift to the giftId container
+        if (containerName == "giftId")
+        {
+            GiftCount+= amount;
         }
 
     }
@@ -169,6 +198,7 @@ public class GiftBatchHandler : MonoBehaviour
 
         IsGiftIdContainerClearing = true;
         _giftIdContainer.Clear();
+        GiftCount = 0;
         IsGiftIdContainerClearing = false;
         
         return avaliableGifts;
@@ -227,6 +257,24 @@ public class GiftBatchHandler : MonoBehaviour
             lock(_sentAlertLock)
             {
                 _sendNotification = value;
+            }
+        }
+    }
+    
+    public int GiftCount
+    {
+        get
+        {
+            lock(_giftCountLock)
+            {
+                return giftCount;
+            }
+        }
+        set
+        {
+            lock(_giftCountLock)
+            {
+                giftCount = value;
             }
         }
     }

@@ -32,7 +32,7 @@ public class TikTokAlertTest : MonoBehaviour
         
         if (lightning)
         {
-            lightning = false;
+            // lightning = false;
             
             giftBatchHandler.addToGiftIdContainer("6652", 1);
         }
