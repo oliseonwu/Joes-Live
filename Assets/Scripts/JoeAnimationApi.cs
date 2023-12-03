@@ -63,6 +63,8 @@ public class JoeAnimationApi : MonoBehaviour
         }
     }
 
+    
+
     private void G_roseAnim_1()
     {
          _animator.SetTrigger(JoesAnimParameters.G_roseTrigger);

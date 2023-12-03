@@ -3902,7 +3902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   giftBag: {fileID: 701122386}
   joeAnimationApi: {fileID: 701122380}
-  joesAnimParameters: {fileID: 701122387}
 --- !u!114 &701122386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6176,8 +6175,8 @@ MonoBehaviour:
   giftCount: 0
   updateFromStashDelay: 2
   updateFromStashInterval: 5
-  actionNotificationFrequency: 10
-  numOfGiftB4SendingActionNotification: 10
+  actionNotificationFrequency: 5
+  numOfGiftB4SendingActionNotification: 3
 --- !u!4 &1575916147
 Transform:
   m_ObjectHideFlags: 0
