@@ -58,6 +58,10 @@ public class JoesAnimationManager : MonoBehaviour
 
         if (nextGiftId != null)
         {
+            if (IsInvoking(nameof(ChangeIdlePose))) {
+                CancelInvoke(nameof(ChangeIdlePose));
+            }
+            
             InPlayMode = true;
             InIdleState = false;
             joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
@@ -85,7 +89,6 @@ public class JoesAnimationManager : MonoBehaviour
         {
             InIdleState = true;
             joeAnimationApi.playIdelAnimation();
-            Debug.Log("herr");
             
             Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
         }
