@@ -48,6 +48,7 @@ public class JoeAnimationApi : MonoBehaviour
     public void playIdelAnimation()
     {
         int randomNum = Random.Range(1, 4);
+        joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
         {
@@ -58,7 +59,6 @@ public class JoeAnimationApi : MonoBehaviour
                 IdleAnimation3();
                 break;
             default:
-                joesAnimParameters.ClearAllSetBool();
                 break;
         }
     }

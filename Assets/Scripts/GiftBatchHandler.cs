@@ -132,7 +132,7 @@ public class GiftBatchHandler : MonoBehaviour
             if (GiftCount >= numOfGiftB4SendingActionNotification 
                 && !SentActionNotification && !SendNotification)
             {
-                UnityMainThreadDispatcher.Enqueue(()=>Invoke(nameof(SendAnActionNotificationEvent),actionNotificationFrequency ));
+                Invoke(nameof(SendAnActionNotificationEvent),actionNotificationFrequency );
                 SentActionNotification = true;
                 return;
             }
