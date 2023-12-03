@@ -2,17 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JoesAnimationManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private String currentAnimation = "";
     public GiftBag giftBag;
-    public JoeAnimationApi JoeAnimationApi;
+    public JoeAnimationApi joeAnimationApi;
     private bool _inPlayMode;
+    private bool _inIdleState = true;
     
+    // Since joe has multiple default animations
+    // this keeps track of the amount of time 
+    // in sec that joe has to keep a type of
+    // idle pose before switching to another idle pose.
+    private float _idlePoseChangeFrequency;
+    private float minimumTimeForIdelPoseChange = 5;
+    private float maximumTimeForIdelPoseChange = 12;
+    
+    private readonly object _inPlayModeLock = new ();
+    private readonly object _inIdleStateLock = new ();
+
     void Start()
     {
+        Invoke(nameof(playIdleAnimation), 5f);
+
         subscribeToEvents();
     }
 
@@ -40,16 +54,103 @@ public class JoesAnimationManager : MonoBehaviour
     public void playNextAnimation(float waitTime)
     {
         string nextGiftId = giftBag.GetARandomGift();
-        
+        InPlayMode = false;
+
         if (nextGiftId != null)
         {
-            UnityMainThreadDispatcher.Enqueue(()=>JoeAnimationApi.PlayGiftAnim(nextGiftId, waitTime));
+            if (IsInvoking(nameof(ChangeIdlePose))) {
+                CancelInvoke(nameof(ChangeIdlePose));
+            }
+            
+            InPlayMode = true;
+            InIdleState = false;
+            joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
+            Debug.Log("we play");
+            return;
+        }
+
+        if (!InIdleState)
+        {
+            Invoke(nameof(playIdleAnimation), 5f);
+        }
+    }
+
+    private void playIdleAnimation()
+    {
+        _idlePoseChangeFrequency = Random.Range(
+            minimumTimeForIdelPoseChange, 
+            maximumTimeForIdelPoseChange);
+        
+        // Five seconds later I want to still check if
+        // am not in playmode and if there is a chance that
+        // this was called while in idle state, I want to 
+        // make sure not to trigger another idle state
+        if (!InPlayMode && !InIdleState)
+        {
+            InIdleState = true;
+            joeAnimationApi.playIdelAnimation();
+            
+            Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
+        }
+
+    }
+
+    private void ChangeIdlePose()
+    {
+        _idlePoseChangeFrequency = Random.Range(
+            minimumTimeForIdelPoseChange, 
+            maximumTimeForIdelPoseChange);
+        
+        if (!InPlayMode )
+        {
+            InIdleState = true;
+            joeAnimationApi.playIdelAnimation();
+            Debug.Log("herr");
+        }
+        
+        Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
+    }
+    private void playNextAnimation2()
+    {
+        InPlayMode = false;
+
+        playNextAnimation(0f);
+        
+    }
+    
+    public bool InPlayMode
+    {
+        get
+        {
+            lock(_inPlayModeLock)
+            {
+                return _inPlayMode;
+            }
+        }
+        set
+        {
+            lock(_inPlayModeLock)
+            {
+                _inPlayMode = value;
+            }
         }
     }
     
-    private void playNextAnimation2()
+    public bool InIdleState
     {
-        playNextAnimation(.5f);
-        
+        get
+        {
+            lock(_inIdleStateLock)
+            {
+                return _inIdleState;
+            }
+        }
+        set
+        {
+            lock(_inIdleStateLock)
+            {
+                _inIdleState = value;
+            }
+        }
     }
 }

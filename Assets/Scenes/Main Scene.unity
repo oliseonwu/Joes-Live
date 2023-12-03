@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605743183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00cf240aa37fdc04a992645934f43c65, type: 3}
   m_Name: 
@@ -2502,11 +2502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.00062686205
+      value: 0.00062674284
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.0013292283
+      value: -0.0013294667
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.z
@@ -2514,7 +2514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.26865566
+      value: 0.26865575
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.y
@@ -3659,6 +3659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 701122375}
   spawnManager: {fileID: 205556459}
+  joesAnimParameters: {fileID: 701122387}
 --- !u!65 &701122381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3900,7 +3901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   giftBag: {fileID: 701122386}
-  JoeAnimationApi: {fileID: 701122380}
+  joeAnimationApi: {fileID: 701122380}
 --- !u!114 &701122386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3917,6 +3918,20 @@ MonoBehaviour:
   displayGiftBag: 0
   getNextGift: 0
   _sendNotification: 1
+--- !u!114 &701122387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701122374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520fe687ba98a6d4994a516bb2acba64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 701122375}
+  checkedParams: []
 --- !u!1001 &703009391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6160,8 +6175,8 @@ MonoBehaviour:
   giftCount: 0
   updateFromStashDelay: 2
   updateFromStashInterval: 5
-  actionNotificationFrequency: 10
-  numOfGiftB4SendingActionNotification: 10
+  actionNotificationFrequency: 5
+  numOfGiftB4SendingActionNotification: 3
 --- !u!4 &1575916147
 Transform:
   m_ObjectHideFlags: 0

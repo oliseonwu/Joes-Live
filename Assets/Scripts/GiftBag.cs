@@ -133,7 +133,14 @@ public class GiftBag : MonoBehaviour
             // we tell the gift bag to alert us when a gift is available.
             SendNotification = true;
             
-            CollectMoreGifts();
+            // we wait 0.5 sec to avoid race condition with JoesAnimationManager
+            // playNextAnimation() which calls this function. We use this to make
+            // sure any previous calls to the playNextAnimation() in the
+            // JoesAnimationManager full completes and update its state appropriately
+            // before another call is made. Remember CollectMoreGifts() may trigger
+            // the playNextAnimation() using events
+            Invoke(nameof(CollectMoreGifts), 0.5f); 
+
         }
         
         return returnedGiftId;
@@ -160,7 +167,13 @@ public class GiftBag : MonoBehaviour
             // we tell the gift bag to alert us when a gift is available.
             SendNotification = true;
             
-            CollectMoreGifts();
+            // we wait 0.5 sec to avoid race condition with JoesAnimationManager
+            // playNextAnimation() which calls this function. We use this to make
+            // sure any previous calls to the playNextAnimation() in the
+            // JoesAnimationManager full completes and update its state appropriately
+            // before another call is made. Remember CollectMoreGifts() may trigger
+            // the playNextAnimation() using events
+           Invoke(nameof(CollectMoreGifts), 0.5f); 
             
             return null;
         }
