@@ -10,7 +10,7 @@ public class JoesAnimationManager : MonoBehaviour
     public GiftBag giftBag;
     public JoeAnimationApi joeAnimationApi;
     private bool _inPlayMode;
-    private bool _inIdleState = true;
+    private bool _inIdleState = false;
     
     // Since joe has multiple default animations
     // this keeps track of the amount of time 
@@ -65,7 +65,7 @@ public class JoesAnimationManager : MonoBehaviour
             InPlayMode = true;
             InIdleState = false;
             joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
-            Debug.Log("we play");
+            // Debug.Log("we play");
             return;
         }
 
@@ -105,7 +105,7 @@ public class JoesAnimationManager : MonoBehaviour
         {
             InIdleState = true;
             joeAnimationApi.playIdelAnimation();
-            Debug.Log("herr");
+            Debug.Log("Idle Pose change");
         }
         
         Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
