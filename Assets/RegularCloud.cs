@@ -21,13 +21,13 @@ public class RegularCloud : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveLeft();
+        Move(1);
     }
 
-    private void MoveLeft()
+    private void Move(float direction)
     {
         Vector3 velocity = rb.velocity;
-        rb.velocity= new Vector3(-1.0f * moveSpeed,0.0f, 0.0f) * Time.deltaTime;
+        rb.velocity= new Vector3(direction * moveSpeed,0.0f, 0.0f) * Time.deltaTime;
     }
     
     private void MoveRight()
