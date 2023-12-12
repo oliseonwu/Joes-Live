@@ -58,9 +58,9 @@ public class JoesAnimationManager : MonoBehaviour
 
         if (nextGiftId != null)
         {
-            if (IsInvoking(nameof(ChangeIdlePose))) {
-                CancelInvoke(nameof(ChangeIdlePose));
-            }
+            // if (IsInvoking(nameof(ChangeIdlePose))) {
+            //     CancelInvoke(nameof(ChangeIdlePose));
+            // }
             
             InPlayMode = true;
             InIdleState = false;
@@ -83,8 +83,9 @@ public class JoesAnimationManager : MonoBehaviour
         
         // Five seconds later I want to still check if
         // am not in playmode and if there is a chance that
-        // this was called while in idle state, I want to 
-        // make sure not to trigger another idle state
+        // this function was called while again while in
+        // idle state, I want to make sure not to trigger
+        // another idle state
         if (!InPlayMode && !InIdleState)
         {
             InIdleState = true;
@@ -105,7 +106,7 @@ public class JoesAnimationManager : MonoBehaviour
         {
             InIdleState = true;
             joeAnimationApi.playIdelAnimation();
-            Debug.Log("Idle Pose change");
+            // Debug.Log("Idle Pose change");
         }
         
         Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
