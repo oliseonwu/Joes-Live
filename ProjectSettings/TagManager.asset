@@ -6,6 +6,10 @@ TagManager:
   tags:
   - MainPlayer
   - AngryCloud
+  - Big Clouds
+  - Medium Clouds
+  - Small Clouds
+  - View Area
   layers:
   - Default
   - TransparentFX
