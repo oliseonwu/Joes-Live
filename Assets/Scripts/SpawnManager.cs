@@ -22,6 +22,13 @@ public class SpawnManager : MonoBehaviour
     public Renderer meshRenderer;
     public float minSpawnDelay = 1f;
     public float maxSpawnDelay = 5f;
+    public float maxSpawnCoolDown = 40;
+    public float minSpawnCoolDown = 20;
+
+    public float maxNumOfBirdsOnscreen = 5;
+    private static int numOfBirdsOnScreen;
+    private static readonly object numOfBirdsOnScreenLock = new ();
+    private bool onCoolDown;
     void Start()
     {
         Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnDelay, maxSpawnDelay));
@@ -49,10 +56,19 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnBirdWithDelay()
     {
+        if (NumOfBirdsOnScreen >= maxNumOfBirdsOnscreen && !onCoolDown)
+        {
+            onCoolDown = true;
+            
+            Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnCoolDown, maxSpawnCoolDown));
+            return;
+        }
+        onCoolDown = false;
+        
         SpawnBird();
-
+        
         // Invoke this method again with a new random delay
-        Invoke("SpawnBirdWithDelay", Random.Range(minSpawnDelay, maxSpawnDelay));
+        Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnDelay, maxSpawnDelay));
     }
     
     private void SpawnBird()
@@ -61,6 +77,10 @@ public class SpawnManager : MonoBehaviour
         GameObject birdGameObject = (Random.Range(1, 11) <= 2) ? birdType2 : birdType1;
         Vector3 spawnPoint = getRandomBirdSpawPoint();
         Vector3 centerOfSkyViewArea = meshRenderer.bounds.center;
+
+        // 1 means small bird 
+        // 2 means big bird
+        int birdScaleType = (Random.Range(1, 3) == 1) ? Bird.SMALL_BIRD_TYPE: Bird.BIG_BIRD_TYPE;
         
         // 1 means left -1 means right
         int birdDirection = (spawnPoint.x < centerOfSkyViewArea.x) ? 1 : -1; 
@@ -70,9 +90,12 @@ public class SpawnManager : MonoBehaviour
         
 
         spawnBird = false;
+
+        NumOfBirdsOnScreen++;
+        
         spawnedObject = Instantiate(birdGameObject, spawnPoint, Quaternion.identity);
 
-        spawnedObject.GetComponent<Bird>().SetBirdDirection(birdDirection);
+        spawnedObject.GetComponent<Bird>().BirdSetUp(birdDirection, birdScaleType);
     }
     
 
@@ -95,5 +118,23 @@ public class SpawnManager : MonoBehaviour
         
     
         return spawnPoint;
+    }
+    
+    public static int NumOfBirdsOnScreen
+    {
+        get
+        {
+            lock(numOfBirdsOnScreenLock)
+            {
+                return numOfBirdsOnScreen;
+            }
+        }
+        set
+        {
+            lock(numOfBirdsOnScreenLock)
+            {
+                numOfBirdsOnScreen = value;
+            }
+        }
     }
 }

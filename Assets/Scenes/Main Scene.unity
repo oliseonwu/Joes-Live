@@ -681,6 +681,11 @@ MonoBehaviour:
   birdType1: {fileID: 6799993955319221888, guid: 7a6ff8871eca8a7449564b380bddcacd, type: 3}
   birdType2: {fileID: 4567092349315601500, guid: 2b7f4d498042f7940877518a414be95f, type: 3}
   meshRenderer: {fileID: 2018189566}
+  minSpawnDelay: 1
+  maxSpawnDelay: 9
+  maxSpawnCoolDown: 25
+  minSpawnCoolDown: 10
+  maxNumOfBirdsOnscreen: 4
 --- !u!4 &205556460
 Transform:
   m_ObjectHideFlags: 0
