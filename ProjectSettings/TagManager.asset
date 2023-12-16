@@ -10,6 +10,7 @@ TagManager:
   - Medium Clouds
   - Small Clouds
   - View Area
+  - SkyArea
   layers:
   - Default
   - TransparentFX
