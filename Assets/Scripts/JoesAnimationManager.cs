@@ -23,11 +23,14 @@ public class JoesAnimationManager : MonoBehaviour
     private readonly object _inPlayModeLock = new ();
     private readonly object _inIdleStateLock = new ();
 
+    [SerializeField] private Chat _chat; 
+
     void Start()
     {
+        
         Invoke(nameof(playIdleAnimation), 5f);
-
         subscribeToEvents();
+        
     }
 
     // Update is called once per frame
@@ -58,10 +61,6 @@ public class JoesAnimationManager : MonoBehaviour
 
         if (nextGiftId != null)
         {
-            // if (IsInvoking(nameof(ChangeIdlePose))) {
-            //     CancelInvoke(nameof(ChangeIdlePose));
-            // }
-            
             InPlayMode = true;
             InIdleState = false;
             joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);

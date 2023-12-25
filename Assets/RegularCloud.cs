@@ -73,7 +73,6 @@ public class RegularCloud : MonoBehaviour
             return;
         }
         
-        Debug.Log("Looping now!");
         setXPos();
         
         // switch (gameObject.tag)

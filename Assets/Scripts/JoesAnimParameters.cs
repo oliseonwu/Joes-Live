@@ -17,6 +17,8 @@ public class JoesAnimParameters : MonoBehaviour
     public static String Idle2 = "handsOnHipLookAround";
     public static String Idle3 = "handsOnHipLookAround(One Leg)";
 
+    public static String IdleStatesBool = "Idle States";
+
 
     private void Start()
     {
@@ -44,19 +46,25 @@ public class JoesAnimParameters : MonoBehaviour
     /// Unchecks every bool params in the
     /// animator.
     /// </summary>
-    public void ClearAllSetBool()
+    public void ClearAllIntSetBool()
     {
-        if (checkedParams.Count == 0)
-        {
-            return; // stop early
-        }
-        
-        // set all active params(Check params) disabled
-        for (int x = 0; x < checkedParams.Count; x++)
-        {
-            _animator.SetBool(checkedParams[x], false);
-        }
-        checkedParams.Clear();
+        _animator.SetInteger(IdleStatesBool, 0);
     }
+
+    public void setIntTrigger(int stateId, string intTriggerName)
+    {
+        _animator.SetInteger(intTriggerName, stateId);
+
+        StartCoroutine(resetIntTrigger(intTriggerName));
+    }
+
+    private IEnumerator resetIntTrigger(string intTriggerName)
+    {
+        yield return new WaitForSeconds(0.1f); // Wait for a short duration
+        _animator.SetInteger(intTriggerName, 0);
+    }
+    
+    
+    
 
 }

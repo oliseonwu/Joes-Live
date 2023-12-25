@@ -13,7 +13,6 @@ public class JoeAnimationApi : MonoBehaviour
 
     void Start()
     {
-        // _animator = GetComponent<Animator>();
         subscribeToEvents();
     }
 
@@ -28,7 +27,7 @@ public class JoeAnimationApi : MonoBehaviour
         // Converts gift names to the actual animations
         // Option is used select an animation when a gift has multiple animations.
         // waitTime is the time in seconds to wait before playing the animation
-        joesAnimParameters.ClearAllSetBool();
+        joesAnimParameters.ClearAllIntSetBool();
         switch (giftId)
         {
             case "5655":
@@ -47,16 +46,23 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(1, 4);
-        joesAnimParameters.ClearAllSetBool();
+        int randomNum = Random.Range(1, 6);
+        joesAnimParameters.ClearAllIntSetBool();
 
+        // _animator.SetInteger(JoesAnimParameters.IdleStatesBool, randomNum);
         switch (randomNum)
         {
             case 2:
-                IdleAnimation2();
+                _animator.SetInteger(JoesAnimParameters.IdleStatesBool, 2);
                 break;
             case 3:
-                IdleAnimation3();
+                _animator.SetInteger(JoesAnimParameters.IdleStatesBool, 3);
+                break;
+            case 4:
+                joesAnimParameters.setIntTrigger( 4, JoesAnimParameters.IdleStatesBool);
+                break;
+            case 5:
+                joesAnimParameters.setIntTrigger( 5, JoesAnimParameters.IdleStatesBool);
                 break;
             default:
                 break;
@@ -78,15 +84,6 @@ public class JoeAnimationApi : MonoBehaviour
     public void G_HatandMustache()
     {
         _animator.SetTrigger(JoesAnimParameters.G_HatandMustacheTrigger);
-    }
-
-    private void IdleAnimation2()
-    {
-        joesAnimParameters.setOneBool(JoesAnimParameters.Idle2);
-    }
-    private void IdleAnimation3()
-    {
-        joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
     }
 
     public void sad()
