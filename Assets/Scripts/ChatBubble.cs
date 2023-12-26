@@ -10,7 +10,7 @@ public class ChatBubble : MonoBehaviour
 
     public Animator _animator;
 
-    public void SetChatText(string text)
+    public void SetChatText(string text, float exitTime = 10f)
     {
         showBubble();
         bubbletext.SetText(text);
@@ -22,7 +22,7 @@ public class ChatBubble : MonoBehaviour
         
         Vector2 padding =  new Vector2(2.5f, 1f);
         bgImgGameObj.GetComponent<SpriteRenderer>().size = textSizeInfo + padding;
-        Invoke(nameof(hideBubble), 10);
+        Invoke(nameof(hideBubble), exitTime);
     }
 
     private void hideBubble()

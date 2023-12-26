@@ -41,8 +41,6 @@ public class JoeAnimationApi : MonoBehaviour
             case "6427":
                 Invoke(nameof(G_HatandMustache), waitTime);
                 break;
-            default:
-                break;
         }
     }
 
@@ -53,6 +51,9 @@ public class JoeAnimationApi : MonoBehaviour
 
         switch (randomNum)
         {
+            case 1:
+                joesAnimParameters.setIntParam(0, JoesAnimParameters.AnimState1);
+                break;
             case 2:
                 IdleAnimation2();
                 break;
@@ -61,8 +62,6 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 4:
                 Hi();
-                break;
-            default:
                 break;
         }
     }
@@ -86,18 +85,22 @@ public class JoeAnimationApi : MonoBehaviour
 
     private void IdleAnimation2()
     {
-        joesAnimParameters.setOneBool(JoesAnimParameters.Idle2);
+        joesAnimParameters.setIntParam(2, JoesAnimParameters.AnimState1);
+        // joesAnimParameters.setOneBool(JoesAnimParameters.Idle2);
     }
     private void IdleAnimation3()
     {
-        joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
+        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1);
+        _animator.SetInteger(JoesAnimParameters.AnimState1, 3);
+        // joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
     }
 
     private void Hi()
     {
-        joesAnimParameters.ClearAllSetBool();
-        _animator.SetInteger("Animation State", 1);
-        _chatBubble.SetChatText("Hi!!");
+        // joesAnimParameters.ClearAllSetBool();
+        joesAnimParameters.setIntParam(4, JoesAnimParameters.AnimState1, 4);
+        // _animator.SetInteger(JoesAnimParameters.AnimState1, 4);
+        _chatBubble.SetChatText("Hi!!", 4);
     }
 
     public void sad()
