@@ -12,7 +12,7 @@ public class ChatBubble : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetChatText("hello there");
+        SetChatText("hello what up how are you ?");
     }
 
     // Update is called once per frame
@@ -30,11 +30,11 @@ public class ChatBubble : MonoBehaviour
         Vector2 textSizeInfo = bubbletext.GetRenderedValues(false); // we are saying hey get the
         // size of the most recent visible fame of text
 
-        // Vector2 padding =  new Vector2(0.8f, 0.4f);
-        Vector2 padding =  new Vector2(0f, 0f);
+        Vector2 padding =  new Vector2(2.5f, 1f);
+        // Vector2 padding =  new Vector2(0f, 0f);
 
         
-        bgImgGameObj.GetComponent<SpriteRenderer>().size = textSizeInfo/2 + padding;
+        bgImgGameObj.GetComponent<SpriteRenderer>().size = textSizeInfo + padding;
 
         
         // Invoke(nameof(hideBubble), 10);
