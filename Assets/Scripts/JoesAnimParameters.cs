@@ -13,9 +13,9 @@ public class JoesAnimParameters : MonoBehaviour
     public static String G_LightningBolt1Trigger = "G_Lightning";
     public static String G_LightningBolt2Trigger = "G_Lightning 2";
     public static String G_HatandMustacheTrigger = "G_Cow boy";
-
-    public static String Idle2 = "handsOnHipLookAround";
-    public static String Idle3 = "handsOnHipLookAround(One Leg)";
+    
+    public static String AnimState1 = "Animation State";
+    private Coroutine intParamCoroutine = null;
 
 
     private void Start()
@@ -58,5 +58,38 @@ public class JoesAnimParameters : MonoBehaviour
         }
         checkedParams.Clear();
     }
+    
+    
 
+    /// <summary>
+    /// Used to simulate the types of param the animator uses
+    /// <param name="stateId"> the animation Id state Joe's
+    /// currently in</param>
+    /// <param name="intParamName"> the name of the int param</param>
+    /// <param name="waitTime"> How long before the value is reset</param>
+    /// </summary>
+    public void setIntParam(int stateId, string intParamName, float waitTime =0)
+    {
+        if (intParamCoroutine != null)
+        {
+            StopCoroutine(intParamCoroutine);
+            intParamCoroutine = null;
+        }
+        
+        _animator.SetInteger(intParamName, stateId);
+
+        // used to simulate a trigger param or a bool with a timer
+        if (waitTime != 0)
+        {
+            intParamCoroutine = StartCoroutine(resetIntParam(intParamName, waitTime));
+        }
+    }
+    
+
+    private IEnumerator resetIntParam(string intParamName, float waitTime)
+    {
+        intParamCoroutine = null;
+        yield return new WaitForSeconds(waitTime); // Wait for a short duration
+        _animator.SetInteger(intParamName, 0);
+    }
 }
