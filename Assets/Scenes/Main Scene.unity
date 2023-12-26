@@ -1656,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_LocalScale.x
@@ -3710,6 +3710,7 @@ MonoBehaviour:
   _animator: {fileID: 701122375}
   spawnManager: {fileID: 205556459}
   joesAnimParameters: {fileID: 701122387}
+  _chatBubble: {fileID: 1173654329}
 --- !u!65 &701122381
 BoxCollider:
   m_ObjectHideFlags: 0

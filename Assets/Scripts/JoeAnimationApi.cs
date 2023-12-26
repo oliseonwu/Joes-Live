@@ -10,6 +10,7 @@ public class JoeAnimationApi : MonoBehaviour
     private string A_RoseInMouth = "A_rose(mouth)";
     public SpawnManager spawnManager;
     public JoesAnimParameters joesAnimParameters;
+    [SerializeField] private ChatBubble _chatBubble; 
 
     void Start()
     {
@@ -47,7 +48,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(1, 4);
+        int randomNum = Random.Range(1, 5);
         joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
@@ -57,6 +58,9 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 3:
                 IdleAnimation3();
+                break;
+            case 4:
+                Hi();
                 break;
             default:
                 break;
@@ -87,6 +91,13 @@ public class JoeAnimationApi : MonoBehaviour
     private void IdleAnimation3()
     {
         joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
+    }
+
+    private void Hi()
+    {
+        joesAnimParameters.ClearAllSetBool();
+        _animator.SetInteger("Animation State", 1);
+        _chatBubble.SetChatText("Hi!!");
     }
 
     public void sad()
