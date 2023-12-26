@@ -12,6 +12,7 @@ public class ChatBubble : MonoBehaviour
 
     public void SetChatText(string text, float exitTime = 10f)
     {
+        CancelInvoke(nameof(hideBubble));
         showBubble();
         bubbletext.SetText(text);
         bubbletext.ForceMeshUpdate(); // Force the text to update its size(width and height) info.

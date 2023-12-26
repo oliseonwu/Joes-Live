@@ -18,12 +18,6 @@ public class JoeAnimationApi : MonoBehaviour
         subscribeToEvents();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-    }
     public void PlayGiftAnim(String giftId, float waitTime = 0, int option = 1 )
     {
         // Converts gift names to the actual animations
@@ -46,27 +40,36 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(1, 5);
+        int randomNum = Random.Range(0, 7);
         joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
         {
-            case 1:
-                joesAnimParameters.setIntParam(0, JoesAnimParameters.AnimState1);
+            case 0: // Idle Bounce
+                OriginalIdleState();
                 break;
-            case 2:
-                IdleAnimation2();
+            case 1: // Hands on heaps look left and right
+                joesAnimParameters.setIntParam(1, JoesAnimParameters.AnimState1);
                 break;
-            case 3:
-                IdleAnimation3();
+            case 2: // Hands on heaps look left and right(one leg)
+                joesAnimParameters.setIntParam(2, JoesAnimParameters.AnimState1);
                 break;
-            case 4:
+            case 3: // Hi
                 Hi();
+                _chatBubble.SetChatText("Hi!!", 4);
+                break;
+            case 4: // bend left
+                joesAnimParameters.setIntParam(4, JoesAnimParameters.AnimState1, 5);
+                break;
+            case 5: // bend left play
+                joesAnimParameters.setIntParam(5, JoesAnimParameters.AnimState1, 8);
+                break;
+            case 6:
+                Hi();
+                _chatBubble.SetChatText("Welcome to my live!", 8f);
                 break;
         }
     }
-
-    
 
     private void G_roseAnim_1()
     {
@@ -83,24 +86,14 @@ public class JoeAnimationApi : MonoBehaviour
         _animator.SetTrigger(JoesAnimParameters.G_HatandMustacheTrigger);
     }
 
-    private void IdleAnimation2()
-    {
-        joesAnimParameters.setIntParam(2, JoesAnimParameters.AnimState1);
-        // joesAnimParameters.setOneBool(JoesAnimParameters.Idle2);
-    }
-    private void IdleAnimation3()
-    {
-        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1);
-        _animator.SetInteger(JoesAnimParameters.AnimState1, 3);
-        // joesAnimParameters.setOneBool(JoesAnimParameters.Idle3);
-    }
-
     private void Hi()
     {
-        // joesAnimParameters.ClearAllSetBool();
-        joesAnimParameters.setIntParam(4, JoesAnimParameters.AnimState1, 4);
-        // _animator.SetInteger(JoesAnimParameters.AnimState1, 4);
-        _chatBubble.SetChatText("Hi!!", 4);
+        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1, 4);
+    }
+
+    public void OriginalIdleState()
+    {
+        joesAnimParameters.setIntParam(0, JoesAnimParameters.AnimState1);
     }
 
     public void sad()
