@@ -192,7 +192,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.15
+  m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9963406
   m_HasExitTime: 0
@@ -347,7 +347,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.35
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -397,7 +397,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.45
   m_TransitionOffset: 0
   m_ExitTime: 0.95268136
   m_HasExitTime: 1
@@ -419,13 +419,13 @@ AnimatorStateMachine:
     m_Position: {x: 30, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 291187659513790276}
-    m_Position: {x: -460, y: -620, z: 0}
+    m_Position: {x: -470, y: -620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7080366893584331758}
     m_Position: {x: -460, y: -560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7433694034835166922}
-    m_Position: {x: -470, y: -510, z: 0}
+    m_Position: {x: -480, y: -510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2820561527792697786}
     m_Position: {x: -780, y: -640, z: 0}
@@ -581,7 +581,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.35
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -778,7 +778,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.15
+  m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.9963873
   m_HasExitTime: 0
@@ -803,7 +803,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.45
   m_TransitionOffset: 0
   m_ExitTime: 0.9
   m_HasExitTime: 1
@@ -1530,7 +1530,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.45
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -1580,7 +1580,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.45
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
@@ -1678,7 +1678,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.21
+  m_TransitionDuration: 0.3
   m_TransitionOffset: 0
   m_ExitTime: 4.9350603e-11
   m_HasExitTime: 0
