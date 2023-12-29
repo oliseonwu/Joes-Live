@@ -40,7 +40,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(0, 7);
+        int randomNum = Random.Range(0, 6);
         joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
@@ -61,10 +61,7 @@ public class JoeAnimationApi : MonoBehaviour
             case 4: // bend left
                 joesAnimParameters.setIntParam(4, JoesAnimParameters.AnimState1, 5);
                 break;
-            case 5: // bend left play
-                joesAnimParameters.setIntParam(5, JoesAnimParameters.AnimState1, 8);
-                break;
-            case 6:
+            case 5:
                 Hi();
                 _chatBubble.SetChatText("Welcome to my live!", 8f);
                 break;
