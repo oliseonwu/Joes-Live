@@ -24,13 +24,16 @@ public class SpawnManager : MonoBehaviour
     public float maxSpawnDelay = 5f;
     public float maxSpawnCoolDown = 40;
     public float minSpawnCoolDown = 20;
+    public ScriptableObjects ScriptableObjects;
 
     public float maxNumOfBirdsOnscreen = 5;
     private static int numOfBirdsOnScreen;
     private static readonly object numOfBirdsOnScreenLock = new ();
     private bool onCoolDown;
+     
     void Start()
     {
+        ScriptableObjects.sportCarSObj.spawn();
         Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnDelay, maxSpawnDelay));
     }
 
@@ -119,7 +122,7 @@ public class SpawnManager : MonoBehaviour
     
         return spawnPoint;
     }
-    
+
     public static int NumOfBirdsOnScreen
     {
         get

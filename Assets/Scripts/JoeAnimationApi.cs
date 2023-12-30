@@ -40,7 +40,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(0, 6);
+        int randomNum = Random.Range(0, 7);
         joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
@@ -64,6 +64,10 @@ public class JoeAnimationApi : MonoBehaviour
             case 5:
                 Hi();
                 _chatBubble.SetChatText("Welcome to my live!", 8f);
+                break;
+            case 6:
+                Hi();
+                _chatBubble.SetChatText("Hi, send a Rose, Lightning or Cowboy to see my reaction", 8f);
                 break;
         }
     }
