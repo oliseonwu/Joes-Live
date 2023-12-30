@@ -6,31 +6,42 @@ using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
+    
     // --- Controls ---
     public Boolean spawnAngryCloud;
     public Boolean spawnBird;
     
+    public ScriptableObjects ScriptableObjects;
+
     // --- Spawn points ---
     public GameObject spawnPoint1;
     public GameObject skyArea;
+    public GameObject leftCarSpawnPos;
+    public GameObject rightCarSpawnPos;
+    public Renderer meshRenderer;
 
     // --- Prefabs ---
     public GameObject angryCloud;
     public GameObject birdType1;
     public GameObject birdType2;
 
-    public Renderer meshRenderer;
+    // Advanced Controls
     public float minSpawnDelay = 1f;
     public float maxSpawnDelay = 5f;
     public float maxSpawnCoolDown = 40;
     public float minSpawnCoolDown = 20;
-
     public float maxNumOfBirdsOnscreen = 5;
+
+    // Private variables
     private static int numOfBirdsOnScreen;
     private static readonly object numOfBirdsOnScreenLock = new ();
     private bool onCoolDown;
+     
     void Start()
     {
+        InvokeRepeating(nameof(SpawnCar), 3,
+            CarsSObjClass.coolDown);
+        
         Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnDelay, maxSpawnDelay));
     }
 
@@ -52,6 +63,11 @@ public class SpawnManager : MonoBehaviour
     {
         spawnAngryCloud = false;
         Instantiate(angryCloud, spawnPoint1.transform.position, Quaternion.identity);
+    }
+
+    private void SpawnCar()
+    {
+        ScriptableObjects.sportCarSObj.spawn(leftCarSpawnPos.transform, rightCarSpawnPos.transform);
     }
 
     private void SpawnBirdWithDelay()
@@ -119,7 +135,7 @@ public class SpawnManager : MonoBehaviour
     
         return spawnPoint;
     }
-    
+
     public static int NumOfBirdsOnScreen
     {
         get

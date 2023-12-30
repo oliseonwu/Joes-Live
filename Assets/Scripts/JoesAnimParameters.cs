@@ -84,7 +84,7 @@ public class JoesAnimParameters : MonoBehaviour
             intParamCoroutine = StartCoroutine(resetIntParam(intParamName, waitTime));
         }
     }
-    
+
 
     private IEnumerator resetIntParam(string intParamName, float waitTime)
     {
