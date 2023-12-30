@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a18c224e80e1948a51ece61ecffac9, type: 3}
+  m_Name: Sport Car
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8091785093020450476, guid: 1117e553d8305bd42bec01b5f6929158, type: 3}
+  sprites:
+  - {fileID: 3286163911610860551, guid: 8fea4cae85393594392a96bfe08d4182, type: 3}
+  - {fileID: 3286163911610860551, guid: b8640f31b8bc40743bd5bbd3b234ac96, type: 3}
+  - {fileID: 3286163911610860551, guid: bf2741e6d8aba1644ab53e1f679582f0, type: 3}
+  - {fileID: 3286163911610860551, guid: a3ff70309fca81a4c8e570b9d106f147, type: 3}
+  - {fileID: 3286163911610860551, guid: 4c032c41e99b4f24bb42f55aa4e24c1a, type: 3}
+  - {fileID: 3286163911610860551, guid: e892d5cfaa3f7014d906c2391e0bf435, type: 3}
+  - {fileID: 3286163911610860551, guid: 343e73f3df7901c40ab051d7a3ebdb4e, type: 3}
+  - {fileID: 3286163911610860551, guid: 2591a348f462f4c43ac434ec9953bcaf, type: 3}
+  - {fileID: 3286163911610860551, guid: dfbfd2b160cea1349b7f25f8a71e169b, type: 3}
+  - {fileID: 3286163911610860551, guid: 98bf42b8273acaa429803767f658ce18, type: 3}
