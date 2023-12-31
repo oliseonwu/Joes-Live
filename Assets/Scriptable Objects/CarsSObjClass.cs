@@ -11,7 +11,7 @@ public class CarsSObjClass : ScriptableObject
 {
     public GameObject  prefab;
     public List<Sprite> sprites;
-    public static float coolDown = 30;
+    public static float coolDown = 10;
     public static int numOfCarsOnScreen = 0;
     private static readonly object numOfCarsOnScreenLock = new ();
 
@@ -61,13 +61,13 @@ public class CarsSObjClass : ScriptableObject
         switch(name)
         {
             case "Bus":
-                speed = 4;
+                speed = 20;
                 break;
             case "Sport Car":
-                speed = 4;
+                speed = 100;
                 break;
             default:
-                speed = 2;
+                speed = 30;
                 break;
         }
 
