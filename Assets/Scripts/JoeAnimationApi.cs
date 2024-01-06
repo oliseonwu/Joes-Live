@@ -72,7 +72,7 @@ public class JoeAnimationApi : MonoBehaviour
                 _chatBubble.SetChatText("Hi, send a Rose, Lightning or Cowboy to see my reaction", 8f);
                 break;
             case 7: // Tap Tap Tap 1
-                joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 3);
+                joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 0.5f);
                 break;
         }
     }
