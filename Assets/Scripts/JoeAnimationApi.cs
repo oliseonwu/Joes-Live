@@ -10,7 +10,8 @@ public class JoeAnimationApi : MonoBehaviour
     private string A_RoseInMouth = "A_rose(mouth)";
     public SpawnManager spawnManager;
     public JoesAnimParameters joesAnimParameters;
-    [SerializeField] private ChatBubble _chatBubble; 
+    [SerializeField] private ChatBubble _chatBubble;
+    public int animationStateIdOverideVal = 7;
 
     void Start()
     {
@@ -40,7 +41,8 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = Random.Range(0, 7);
+        int randomNum = (animationStateIdOverideVal == 0)? Random.Range(0, 8): animationStateIdOverideVal;
+        animationStateIdOverideVal = 0;
         joesAnimParameters.ClearAllSetBool();
 
         switch (randomNum)
@@ -68,6 +70,9 @@ public class JoeAnimationApi : MonoBehaviour
             case 6:
                 Hi();
                 _chatBubble.SetChatText("Hi, send a Rose, Lightning or Cowboy to see my reaction", 8f);
+                break;
+            case 7: // Tap Tap Tap 1
+                joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 3);
                 break;
         }
     }
