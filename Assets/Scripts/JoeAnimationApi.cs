@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -41,7 +42,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void playIdelAnimation()
     {
-        int randomNum = (animationStateIdOverideVal == 0)? Random.Range(0, 8): animationStateIdOverideVal;
+        int randomNum = (animationStateIdOverideVal == 0)? RandomNumberGenerator.GetInt32(0, 8): animationStateIdOverideVal;
         animationStateIdOverideVal = 0;
         joesAnimParameters.ClearAllSetBool();
 

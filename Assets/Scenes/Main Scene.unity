@@ -4110,7 +4110,7 @@ MonoBehaviour:
   spawnManager: {fileID: 205556459}
   joesAnimParameters: {fileID: 701122387}
   _chatBubble: {fileID: 1173654329}
-  animationStateIdOverideVal: 7
+  animationStateIdOverideVal: 0
 --- !u!65 &701122381
 BoxCollider:
   m_ObjectHideFlags: 0
