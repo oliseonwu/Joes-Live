@@ -12,7 +12,7 @@ public class JoeAnimationApi : MonoBehaviour
     public SpawnManager spawnManager;
     public JoesAnimParameters joesAnimParameters;
     [SerializeField] private ChatBubble _chatBubble;
-    public int animationStateIdOverideVal = 7;
+    public int stateIdOveride = 7;
 
     void Start()
     {
@@ -40,13 +40,22 @@ public class JoeAnimationApi : MonoBehaviour
         }
     }
 
-    public void playIdelAnimation()
+    public void playIdelAnimation(int scriptChosenStateId = -1)
     {
-        int randomNum = (animationStateIdOverideVal == 0)? RandomNumberGenerator.GetInt32(0, 8): animationStateIdOverideVal;
-        animationStateIdOverideVal = 0;
+        int stateId = scriptChosenStateId;
+        
+        if (stateId == -1) // means script didn't chose an idle state
+        {
+            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
+        }
+        
+        stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
+
+        stateIdOveride = 0;
+        
         joesAnimParameters.ClearAllSetBool();
 
-        switch (randomNum)
+        switch (stateId)
         {
             case 0: // Idle Bounce
                 OriginalIdleState();
@@ -77,6 +86,8 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
         }
     }
+    
+    
 
     private void G_roseAnim_1()
     {

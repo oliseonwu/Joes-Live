@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +12,7 @@ public class JoesAnimationManager : MonoBehaviour
     public JoeAnimationApi joeAnimationApi;
     private bool _inPlayMode;
     private bool _inIdleState = false;
-    
+
     // Since joe has multiple default animations
     // this keeps track of the amount of time 
     // in sec that joe has to keep a type of
@@ -26,8 +27,8 @@ public class JoesAnimationManager : MonoBehaviour
     void Start()
     {
         Invoke(nameof(playIdleAnimation), 5f);
-
         subscribeToEvents();
+        // StartCoroutine(nameof(LowLikes));
     }
 
     // Update is called once per frame
@@ -110,10 +111,11 @@ public class JoesAnimationManager : MonoBehaviour
         
         Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
     }
+    
     private void playNextAnimation2()
     {
         InPlayMode = false;
-
+        
         playNextAnimation(0f);
         
     }
@@ -153,4 +155,21 @@ public class JoesAnimationManager : MonoBehaviour
             }
         }
     }
+    
+    // if people are not tapping on their screen after a while 
+    // IEnumerator  LowLikes()
+    // {
+    //     if (InIdleState)
+    //     {
+    //         int randomWaitTime = RandomNumberGenerator.GetInt32(0, 5);
+    //         
+    //         yield return new WaitForSeconds(randomWaitTime);
+    //         Debug.Log("Tap Tap Tap!");
+    //         
+    //         joeAnimationApi.playIdelAnimation(
+    //             AllJoeStates.GetStateId(AllJoeStates.JoeStates.Tapping));
+    //         
+    //         StartCoroutine(nameof(LowLikes));
+    //     }
+    // }
 }
