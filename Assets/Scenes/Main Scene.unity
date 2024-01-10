@@ -2897,27 +2897,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.005081922
+      value: -0.0049305856
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 4.2189794
+      value: 0.027982883
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Center.z
-      value: -0.0000011920929
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.21604526
+      value: 0.2160452
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.09892988
+      value: 0.098929934
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Bounds.m_Extent.z
-      value: 1.1368684e-13
+      value: 2.842171e-14
       objectReference: {fileID: 0}
     - target: {fileID: -779816308582205199, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_BoneTransforms.Array.size
@@ -3508,6 +3508,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2130045016}
     - target: {fileID: 3947586101637809190, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4254460238080228444, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+    - target: {fileID: 3947586101637809190, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -3963,6 +3967,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7737177957517086427, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1343986189968835486, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
     - target: {fileID: 7737177957517086427, guid: 130b974dc1dbbde429eed7e6dad33044, type: 3}
       propertyPath: m_MaskInteraction
       value: 2
@@ -6964,8 +6972,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6974,7 +6982,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: 3bffd8b28e94fe84cacd4f591434c44f, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901

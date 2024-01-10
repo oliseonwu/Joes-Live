@@ -435,14 +435,11 @@ AnimatorStateMachine:
     m_State: {fileID: -6786476949595759855}
     m_Position: {x: -780, y: -470, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 816797597294756332}
-    m_Position: {x: -710, y: -340, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -615475149449743899}
-    m_Position: {x: -720, y: -260, z: 0}
+    m_Position: {x: -750, y: -270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2279537947154798897}
-    m_Position: {x: -740, y: -210, z: 0}
+    m_Position: {x: -750, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -658017167857474773}
     m_Position: {x: -200, y: -620, z: 0}
@@ -451,7 +448,7 @@ AnimatorStateMachine:
     m_Position: {x: -165, y: -555, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3370140018830438868}
-    m_Position: {x: -730, y: -160, z: 0}
+    m_Position: {x: -750, y: -160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1687463015154774660}
     m_Position: {x: -470, y: -670, z: 0}
@@ -1151,32 +1148,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &816797597294756332
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Electric shock
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 15478be472cfbf04d8d9836fdd6f44be, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &1076266830792892288
 AnimatorState:
   serializedVersion: 6
@@ -1238,7 +1209,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bend Left
-  m_Speed: 0.8
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4616182682734682333}
