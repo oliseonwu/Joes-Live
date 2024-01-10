@@ -18,6 +18,10 @@ public class JoeSoundApi : MonoBehaviour
         
     }
     
+    public void RizzSound()
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[15]);
+    }
     public void Ayy1Sound()
     {
         _audioSourceList[0].PlayOneShot(_sounds[0]);
@@ -54,10 +58,15 @@ public class JoeSoundApi : MonoBehaviour
     {
         _audioSourceList[0].PlayOneShot(_sounds[7]);
     }
-    
+
     public void WhipSound()
     {
         _audioSourceList[0].PlayOneShot(_sounds[9]);
+    }
+
+    public void KnockSound(int knockType = 1) // only 4 knock types [1-4]
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[9+ knockType]);
     }
     
 }

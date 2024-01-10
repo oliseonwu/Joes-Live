@@ -106,7 +106,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     private void Hi()
     {
-        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1, 4);
+        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1, 0.5f);
     }
 
     public void OriginalIdleState()
@@ -131,6 +131,12 @@ public class JoeAnimationApi : MonoBehaviour
     {
         _animator.SetLayerWeight(2, ammount);
     }
+    
+    public void eyeLayerBlendAmmount(float ammount)
+        {
+            _animator.SetLayerWeight(3, ammount);
+        }
+        
     public void wearRose()
     {
         _animator.SetBool(A_RoseInMouth, true);
