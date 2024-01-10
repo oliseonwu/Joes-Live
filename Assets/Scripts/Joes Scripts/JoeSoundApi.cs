@@ -22,6 +22,10 @@ public class JoeSoundApi : MonoBehaviour
     {
         _audioSourceList[0].PlayOneShot(_sounds[15]);
     }
+    public void PopSound()
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[16]);
+    }
     public void Ayy1Sound()
     {
         _audioSourceList[0].PlayOneShot(_sounds[0]);
