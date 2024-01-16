@@ -11,7 +11,6 @@ public class TikTokListener : MonoBehaviour
     private int reconnectAttempts = 0;
     private const int MaxReconnectAttempts = 10;
     private float reconnectDelay = 1f; // Delay in seconds
-    public UnityMainThreadDispatcher unityMainThreadDispatcher;
     void Start()
     {
         ConnectToWebSocket();

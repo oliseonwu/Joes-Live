@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 343e73f3df7901c40ab051d7a3ebdb4e
+guid: 49195118e1b1875408708510299a4bb1
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -13,14 +13,14 @@ ScriptedImporter:
   svgPixelsPerUnit: 100
   gradientResolution: 64
   alignment: 0
-  customPivot: {x: 0.50663483, y: 0.012340786}
+  customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
   predefinedResolutionIndex: 1
   targetResolution: 1080
-  resolutionMultiplier: 5
+  resolutionMultiplier: 1
   stepDistance: 10
   samplingStepDistance: 100
   maxCordDeviationEnabled: 0
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: Sport Car_1Sprite
+      name: 
       originalName: 
-      pivot: {x: 0.50663483, y: 0.012340786}
-      alignment: 9
+      pivot: {x: 0, y: 0}
+      alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 147
-        height: 56
-      spriteID: 755e0e2e2a8e79945aaf712a09bd98c5
+        width: 0
+        height: 0
+      spriteID: b314662a5a5cff647b7e2aaafd3ac484
     PhysicsOutlines: []

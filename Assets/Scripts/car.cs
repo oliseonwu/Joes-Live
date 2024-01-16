@@ -8,6 +8,7 @@ public class car : MonoBehaviour
     [SerializeField]private Rigidbody rb;
     [Range(0, 200)] public float moveSpeed;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    
     [Tooltip("direction the bird will face and fly towards." +
              "For left = -1, for right = 1 for no movement = 0")]
     private float direction = 0;
@@ -29,15 +30,19 @@ public class car : MonoBehaviour
 
     public void setup(int direction, float speed,  Sprite sprite)
     {
+        
         this.direction = direction;
         moveSpeed = speed;
         _spriteRenderer.sprite = sprite; // Set image of car
         
         if (direction > 0)
         {
-            _spriteRenderer.flipX = true;
+            transform.Rotate(new Vector3(0, 180,0));
+            
             transform.localScale = new Vector3(RIGHT_FACING_CAR_SIZE, 
                 RIGHT_FACING_CAR_SIZE, RIGHT_FACING_CAR_SIZE);
+            
+            _spriteRenderer.sortingOrder = 6;
         }
     }
 
