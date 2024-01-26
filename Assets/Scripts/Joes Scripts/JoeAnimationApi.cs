@@ -46,7 +46,7 @@ public class JoeAnimationApi : MonoBehaviour
         
         if (stateId == -1) // means script didn't chose an idle state
         {
-            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
+            stateId = RandomNumberGenerator.GetInt32(0, 9); // set to a random idle state
         }
         
         stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
@@ -85,6 +85,9 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 7: // Tap Tap Tap 1
                 joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 0.5f);
+                break;
+            case 8: // Head scratch
+                joesAnimParameters.setIntParam(8, JoesAnimParameters.AnimState1, 0.5f);
                 break;
         }
     }
