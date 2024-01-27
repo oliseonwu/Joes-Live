@@ -72,5 +72,14 @@ public class JoeSoundApi : MonoBehaviour
     {
         _audioSourceList[0].PlayOneShot(_sounds[9+ knockType]);
     }
+
+    public void SoundsSource1(int audioClipIndex)
+    {
+        _audioSourceList[0].PlayOneShot(_sounds[audioClipIndex]);
+    }
     
+    public void SoundsSource2(int audioClipIndex)
+    {
+        _audioSourceList[1].PlayOneShot(_sounds[audioClipIndex]);
+    }
 }
