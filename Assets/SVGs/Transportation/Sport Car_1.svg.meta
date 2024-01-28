@@ -13,7 +13,7 @@ ScriptedImporter:
   svgPixelsPerUnit: 100
   gradientResolution: 64
   alignment: 0
-  customPivot: {x: 0, y: 0}
+  customPivot: {x: 0.50663483, y: 0.012340786}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: Sport Car_1Sprite
       originalName: 
-      pivot: {x: 0, y: 0}
-      alignment: 0
+      pivot: {x: 0.50663483, y: 0.012340786}
+      alignment: 9
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
+        width: 147
+        height: 56
       spriteID: 755e0e2e2a8e79945aaf712a09bd98c5
     PhysicsOutlines: []

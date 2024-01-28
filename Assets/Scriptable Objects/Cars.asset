@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49a18c224e80e1948a51ece61ecffac9, type: 3}
+  m_Name: Cars
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8091785093020450476, guid: 1117e553d8305bd42bec01b5f6929158, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 296427dda46ca9241beb1d931236b18a, type: 3}
+  - {fileID: 21300000, guid: 409d65221d2f5274abae2f7f478ebbb4, type: 3}
+  - {fileID: 21300000, guid: 776f9844f6ae42a43b625a4a75a20a24, type: 3}
+  - {fileID: 21300000, guid: ce8ad0fdc0c22a5468adcfa27a2daefd, type: 3}
+  - {fileID: 21300000, guid: 4d8b34f602577724683864847be20035, type: 3}
+  - {fileID: 21300000, guid: 84322449f2325604e9cd6ec980b0f6f5, type: 3}
+  - {fileID: 21300000, guid: ccbabd27fa9f31f4888ebd3a69cfc61d, type: 3}
+  - {fileID: 21300000, guid: e64971692d1663f4b83d9709c30c0a9e, type: 3}
+  - {fileID: 21300000, guid: 8a86c9fa08c20f848aa9e9dccd0dd423, type: 3}
+  - {fileID: 21300000, guid: de894183845a5d24c81c706fe5ee89f9, type: 3}

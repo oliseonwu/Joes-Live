@@ -46,7 +46,7 @@ public class JoeAnimationApi : MonoBehaviour
         
         if (stateId == -1) // means script didn't chose an idle state
         {
-            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
+            stateId = RandomNumberGenerator.GetInt32(0, 9); // set to a random idle state
         }
         
         stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
@@ -75,14 +75,19 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 5:
                 Hi();
-                _chatBubble.SetChatText("Welcome to my live!", 8f);
+                _chatBubble.SetChatText("Welcome to my live!", 6f);
                 break;
             case 6:
                 Hi();
-                _chatBubble.SetChatText("Hi, send a Rose, Lightning or Cowboy to see my reaction", 8f);
+                _chatBubble.SetChatText("Surprise me with <sprite name=Rose>," +
+                                        "<sprite name=Lightning>,<sprite name=Cowboy> gifts and Watch me react"
+                    , 6f);
                 break;
             case 7: // Tap Tap Tap 1
                 joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 0.5f);
+                break;
+            case 8: // Head scratch
+                joesAnimParameters.setIntParam(8, JoesAnimParameters.AnimState1, 0.5f);
                 break;
         }
     }

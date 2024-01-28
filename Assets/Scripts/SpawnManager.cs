@@ -10,6 +10,7 @@ public class SpawnManager : MonoBehaviour
     // --- Controls ---
     public Boolean spawnAngryCloud;
     public Boolean spawnBird;
+    public Boolean DontSpawnCars;
     
     public ScriptableObjects ScriptableObjects;
 
@@ -39,8 +40,8 @@ public class SpawnManager : MonoBehaviour
      
     void Start()
     {
-        InvokeRepeating(nameof(SpawnCar), 3,
-            CarsSObjClass.coolDown);
+            InvokeRepeating(nameof(SpawnCar), 3,
+                CarsSObjClass.coolDown);
         
         Invoke(nameof(SpawnBirdWithDelay), Random.Range(minSpawnDelay, maxSpawnDelay));
     }
@@ -67,6 +68,10 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnCar()
     {
+        if (DontSpawnCars)
+        {
+            return;
+        }
         ScriptableObjects.sportCarSObj.spawn(leftCarSpawnPos.transform, rightCarSpawnPos.transform);
     }
 

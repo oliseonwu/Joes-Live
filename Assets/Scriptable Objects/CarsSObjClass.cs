@@ -19,7 +19,6 @@ public class CarsSObjClass : ScriptableObject
     {
         int moveDir = RandomNumberGenerator.GetInt32(0, 2);
         int carSpriteIndex = RandomNumberGenerator.GetInt32(0, sprites.Count);
-
         Sprite carSprite = sprites[carSpriteIndex];
         
         moveDir = (moveDir == 0) ? -1 : 1;
@@ -30,34 +29,14 @@ public class CarsSObjClass : ScriptableObject
         
         // Build the car
         carGameObj.GetComponent<car>().setup(moveDir,  
-            getSpeedByCarName(carSprite.name),carSprite );
+            getSpeedByCarName(carSprite.name),carSprite);
     }
-    
-    public static int NumOfBirdsOnScreen
-    {
-        get
-        {
-            lock(numOfCarsOnScreenLock)
-            {
-                return numOfCarsOnScreen;
-            }
-        }
-        set
-        {
-            lock(numOfCarsOnScreenLock)
-            {
-                numOfCarsOnScreen = value;
-            }
-        }
-    }
-    
+
     private float getSpeedByCarName(String name)
     {
         float speed;
         name = name.Split("_")[0];
 
-        Debug.Log(name);
-        
         switch(name)
         {
             case "Bus":

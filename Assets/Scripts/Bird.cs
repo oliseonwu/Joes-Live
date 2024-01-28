@@ -42,17 +42,20 @@ public class Bird : MonoBehaviour
     {
         float size;
         
-        switch (birdSizeType)
-        {
-            case 1:
-                size = SMALL_BIRD_SIZE;
-                moveSpeed = SMALL_BIRD_SPEED;
-                break;
-            default:
-                size = BIG_BIRD_SIZE;
-                moveSpeed = BIG_BIRD_SPEED;
-                break;
-        }
+        size = SMALL_BIRD_SIZE;
+        moveSpeed = BIG_BIRD_SPEED;
+        
+        // switch (birdSizeType)
+        // {
+        //     case 1:
+        //         size = SMALL_BIRD_SIZE;
+        //         moveSpeed = SMALL_BIRD_SPEED;
+        //         break;
+        //     default:
+        //         size = BIG_BIRD_SIZE;
+        //         moveSpeed = BIG_BIRD_SPEED;
+        //         break;
+        // }
         
         transform.localScale = new Vector3(size, size, size);
     }
