@@ -19,7 +19,7 @@ public class GiftBag : MonoBehaviour
     private bool _alertRecieved;
     public bool displayGiftBag;
     public bool getNextGift;
-    public bool _sendNotification = true;
+    private bool _sendNotification = true;
     private bool _isBusy;
     public static event Action GetNextGiftEvent;
 
