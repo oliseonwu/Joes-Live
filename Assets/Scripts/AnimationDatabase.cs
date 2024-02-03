@@ -10,7 +10,7 @@ public class AnimationDatabase: MonoBehaviour
     private static Dictionary<AnimationKey, int> animationDic = new Dictionary<AnimationKey, int>
     {
         { AnimationKey.Idle, 0 },
-        { AnimationKey.TapTapTap, 7 },
+        { AnimationKey.TapTapTap, 2000},
     };
     
     public static int GetStateId(AnimationKey animationKey)

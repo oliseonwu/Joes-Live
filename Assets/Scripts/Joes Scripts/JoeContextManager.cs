@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class JoeContextManager : MonoBehaviour
     private HashSet<AnimationDatabase.AnimationKey> _level2Contexts = new();
     private HashSet<AnimationDatabase.AnimationKey> _level3Contexts = new();
     private bool _isBusy;
-    private bool _sentNotification;
+    public bool _sendNotification = true;
     private readonly object _isBusyLock = new();
     private readonly object _sendNotificationLock = new();
     public static event Action GetNewContextEvent;
@@ -35,8 +36,6 @@ public class JoeContextManager : MonoBehaviour
         }
     }
 
-    
-
     /// <summary>
     /// Stores a reference to an animation in the corresponding level (1-3) 
     /// of the Contexts hashmap. This method is used to specify which animation 
@@ -56,7 +55,6 @@ public class JoeContextManager : MonoBehaviour
         {
             case 1:
                 chosenContextLevel = _level1Contexts;
-                Debug.Log("Added contex animation to level 1");
                 break;
             case 2:
                 chosenContextLevel = _level2Contexts;
@@ -73,13 +71,6 @@ public class JoeContextManager : MonoBehaviour
         IsBusy = false;
     }
 
-    private void LowLikesDetected()
-    {
-        // if people are not tapping on their screen after a while
-        RegisterAnimationForContext(AnimationDatabase.AnimationKey.TapTapTap,
-            1);
-    }
-    
     private bool IsBusy
     {
         get
@@ -105,7 +96,7 @@ public class JoeContextManager : MonoBehaviour
         {
             lock (_sendNotificationLock)
             {
-                return _sentNotification;
+                return _sendNotification;
             }
         }
 
@@ -113,8 +104,61 @@ public class JoeContextManager : MonoBehaviour
         {
             lock (_sendNotificationLock)
             {
-                _sentNotification = value;
+                _sendNotification = value;
             }
+        }
+    }
+
+    public Boolean hasContexAnimationOnLevel(int level)
+    {
+        bool hasContexAnimation = getContexStorageByLevel(level).Count > 0;
+
+        if (!hasContexAnimation)
+        {
+            if (level == 1)
+            {
+                // Once we check the last level and still no animation
+                // we ask the this class to alert Joe when there is more animations
+                SendNotification = true;
+            }
+        }
+        
+        return hasContexAnimation;
+    }
+
+    public AnimationDatabase.AnimationKey getNextContexAtLevel(int level)
+    {
+        AnimationDatabase.AnimationKey animationKey;
+        HashSet<AnimationDatabase.AnimationKey> contexAnimationContainer = 
+            getContexStorageByLevel(level);
+
+        IsBusy = true;
+        
+        if (contexAnimationContainer.Count <= 0)
+        {
+            throw new Exception("No Context animation at this level.");
+        }
+
+        animationKey = getContexStorageByLevel(level).FirstOrDefault(); // returns any animationKey stored;
+        contexAnimationContainer.Remove(animationKey);
+
+        IsBusy = false;
+        
+        return animationKey;
+    }
+
+    private  HashSet<AnimationDatabase.AnimationKey> getContexStorageByLevel(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                return _level1Contexts;
+            case 2:
+                return _level2Contexts;
+            case 3:
+                return _level3Contexts;
+            default:
+                throw new KeyNotFoundException("Invalid Contex level");
         }
     }
 
@@ -135,6 +179,7 @@ public class JoeContextManager : MonoBehaviour
                 break;
         }
         
+        Invoke(nameof(SendAlert), 0.5f);
     }
 
     private void subscribeToEvents()

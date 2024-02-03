@@ -67,50 +67,62 @@ public class GiftBag : MonoBehaviour
     private void CollectMoreGifts()
     {
         // Used to update the gift bag with gifts from the 
-        // Giftbatch handler
+        // Giftbatch handler (Fast)
         
         List<String[]> tempGiftBag = giftBatchHandler.TakeGiftsIds();
-        
-    
-        if (tempGiftBag != null)
-        {
-            _giftBag = tempGiftBag;
-            SendAlert();
-        }
-        else
-        {
-            Utilities.Print(nameof(GiftBag),"No gift found. Waiting..." );
-        }
-    }
 
-    private void ForceUpdateBag()
-    {
-        List<String[]> tempGiftBag = giftBatchHandler.TakeGiftsIds();
 
         if (tempGiftBag == null)
         {
-            Utilities.Print(nameof(GiftBag),"No gift found." );
+            Utilities.Print(nameof(GiftBag),"No gift found. Waiting..." );
             return;
         }
 
-        IsBusy = true;
+        if (isGiftBagEmpty(this))
+        {
+            _giftBag = tempGiftBag; // Fast Update
+            Utilities.Print(nameof(GiftBag), "Updated bag success (Fast method)");
+        }
+        else
+        {
+            graduallyUpdateBag(tempGiftBag); // Slow update
+        }
+        
+        SendAlert();
+    }
 
+    private void graduallyUpdateBag(List<String[]> tempGiftBag)
+    {
+        // transfers gifts from the tempGiftBag to the main gift bag.
+        // (Slow if we have many types of gifts)
+        IsBusy = true;
+        
         for (int x = 1; x < tempGiftBag.Count; x++)
         {
             IncreaseAGiftAmount(tempGiftBag[x][0], tempGiftBag[x][1] );
         }
-
+        
         IsBusy = false;
-        Utilities.Print(nameof(GiftBag),"Force update Success!" );
-        SendAlert();
+        
+        Utilities.Print(nameof(GiftBag), "Updated bag success (Slow method)");
     }
 
-    
-    
-    
-    private Boolean isGiftBagEmpty()
+    public Boolean isGiftBagEmpty(object sender)
     {
-        return _giftBag.Count <= 1;
+        bool isEmpty = _giftBag.Count <= 1;
+
+        // If someone else tried to check if we
+        // had some gift and we didn't have any
+        // me make sure to send an alert when
+        // we have some.
+        if (isEmpty && sender.GetType() != 
+            GetType())
+        {
+            SendNotification = true;
+            Invoke(nameof(CollectMoreGifts), 0.5f);
+        }
+        
+        return isEmpty;
     }
 
     public String GetNextGift()
@@ -120,6 +132,9 @@ public class GiftBag : MonoBehaviour
         
         if (IsBusy)
         {
+            // since we came to collect gift but the Giftbag is busy
+            // we can tell the gift bag to alert us when the GiftBag class is free.
+            SendNotification = true;
             return null;
         }
 
@@ -142,6 +157,13 @@ public class GiftBag : MonoBehaviour
             Invoke(nameof(CollectMoreGifts), 0.5f); 
 
         }
+
+        // if giftbag is empty after successfully collecting 
+        // some gifts, try to get more gifts.
+        if (isGiftBagEmpty(this))
+        {
+            Invoke(nameof(CollectMoreGifts), 0.5f);
+        }
         
         return returnedGiftId;
     }
@@ -156,10 +178,11 @@ public class GiftBag : MonoBehaviour
             // we can tell the gift bag to alert us when the GiftBag class is free.
             SendNotification = true;
             
+            Print("Busy, Come back later.");
             return null;
         }
         
-        if (isGiftBagEmpty())
+        if (isGiftBagEmpty(this))
         {
             Print("Gift Bag empty. Attempting to get more gifts.");
             
@@ -222,7 +245,7 @@ public class GiftBag : MonoBehaviour
         int totalGifts; 
         
         // invalid input or empty bag case
-        if (giftIndex <= 0 || isGiftBagEmpty())
+        if (giftIndex <= 0 || isGiftBagEmpty(this))
         {
             return null;
         }
@@ -277,13 +300,13 @@ public class GiftBag : MonoBehaviour
     private void subscribeToEvents()
     {
         GiftBatchHandler.takeGiftIdsEvent += CollectMoreGifts;
-        GiftBatchHandler.SendActionNotificationEvent += ForceUpdateBag;
+        GiftBatchHandler.SendActionNotificationEvent += CollectMoreGifts;
     }
 
     private void unSubscribeFromEvents()
     {
         GiftBatchHandler.takeGiftIdsEvent-= CollectMoreGifts;
-        GiftBatchHandler.SendActionNotificationEvent -= ForceUpdateBag;
+        GiftBatchHandler.SendActionNotificationEvent -= CollectMoreGifts;
     }
     
     private void OnDestroy()

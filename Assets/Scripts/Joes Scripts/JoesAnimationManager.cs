@@ -10,8 +10,11 @@ public class JoesAnimationManager : MonoBehaviour
     // Start is called before the first frame update
     public GiftBag giftBag;
     public JoeAnimationApi joeAnimationApi;
-    private bool _inPlayMode;
+    public JoeContextManager ContextManager;
+    public float contexAnimDelay = 2;
+    public bool _inPlayMode;
     private bool _inIdleState = false;
+    public int playAnimationById = 0;
 
     // Since joe has multiple default animations
     // this keeps track of the amount of time 
@@ -26,55 +29,70 @@ public class JoesAnimationManager : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(playIdleAnimation), 5f);
+       Invoke(nameof(playIdleAnimation), 5f);
         subscribeToEvents();
-        // StartCoroutine(nameof(LowLikes));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void subscribeToEvents()
     {
         GiftBag.GetNextGiftEvent += playNextAnimation2;
+        JoeContextManager.GetNewContextEvent += playNextAnimation2;
     }
     
     private void unSubscribeFromEvents()
     {
         GiftBag.GetNextGiftEvent-= playNextAnimation2;
+        JoeContextManager.GetNewContextEvent -= playNextAnimation2;
     }
-    
+
     private void OnDestroy()
     {
         unSubscribeFromEvents();
     }
 
-    public void playNextAnimation(float waitTime)
+    private void SetToPlayMode()
     {
-        string nextGiftId = giftBag.GetARandomGift();
-        InPlayMode = false;
-
-        if (nextGiftId != null)
+        CancelInvoke(nameof(playIdleAnimation));
+        CancelInvoke(nameof(ChangeIdlePose));
+        InPlayMode = true;
+        InIdleState = false;
+    }
+    
+    public void playNextAnimation(float delay)
+    {
+        if (!giftBag.isGiftBagEmpty(this))
         {
-            CancelInvoke(nameof(playIdleAnimation));
-            CancelInvoke(nameof(ChangeIdlePose));
-            joeAnimationApi.OriginalIdleState(); // set to Idle state
-            
-            InPlayMode = true;
-            InIdleState = false;
-            joeAnimationApi.PlayGiftAnim(nextGiftId, waitTime);
+            SetToPlayMode();
+            joeAnimationApi.PlayGiftAnim(giftBag.GetARandomGift(), delay);
+            return;
+        }
+        
+        if (ContextManager.hasContexAnimationOnLevel(1))
+        {
+            SetToPlayMode();
+            joeAnimationApi.PAnimByAnimKeyWrapper(
+                ContextManager.getNextContexAtLevel(1), contexAnimDelay);
             return;
         }
 
+        InPlayMode = false;
+        
         if (!InIdleState)
         {
             Invoke(nameof(playIdleAnimation), 5f);
         }
+        
     }
-
+    
+    private void playNextAnimation2()
+    {
+        if (!InPlayMode)
+        {
+            playNextAnimation(0f);
+        }
+    }
+    
     private void playIdleAnimation()
     {
         _idlePoseChangeFrequency = Random.Range(
@@ -88,6 +106,7 @@ public class JoesAnimationManager : MonoBehaviour
         // another idle state
         if (!InPlayMode && !InIdleState)
         {
+            Utilities.Print(nameof(JoesAnimationManager), "In Idle State.");
             InIdleState = true;
             joeAnimationApi.playIdelAnimation();
             
@@ -106,19 +125,12 @@ public class JoesAnimationManager : MonoBehaviour
         {
             InIdleState = true;
             joeAnimationApi.playIdelAnimation();
-            // Debug.Log("Idle Pose change");
         }
         
         Invoke(nameof(ChangeIdlePose), _idlePoseChangeFrequency);
     }
     
-    private void playNextAnimation2()
-    {
-        InPlayMode = false;
-        
-        playNextAnimation(0f);
-        
-    }
+    
     
     public bool InPlayMode
     {
@@ -155,21 +167,4 @@ public class JoesAnimationManager : MonoBehaviour
             }
         }
     }
-    
-    // if people are not tapping on their screen after a while 
-    // IEnumerator  LowLikes()
-    // {
-    //     if (InIdleState)
-    //     {
-    //         int randomWaitTime = RandomNumberGenerator.GetInt32(0, 5);
-    //         
-    //         yield return new WaitForSeconds(randomWaitTime);
-    //         Debug.Log("Tap Tap Tap!");
-    //         
-    //         joeAnimationApi.playIdelAnimation(
-    //             AllJoeStates.GetStateId(AllJoeStates.JoeStates.Tapping));
-    //         
-    //         StartCoroutine(nameof(LowLikes));
-    //     }
-    // }
 }
