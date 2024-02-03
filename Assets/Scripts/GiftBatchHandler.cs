@@ -22,8 +22,15 @@ public class GiftBatchHandler : MonoBehaviour
     public bool _isGiftIdContainerClearing;
     public bool showGiftIdContainer;
     public bool showStash;
-    private bool _sendNotification = true;
-    public bool _sentActionNotification = false; 
+    
+    private bool _sendNotification = true; // Gift bag uses this variable to make this class
+                                           // send a notification when it has some gifts
+                                           
+                                           
+    public bool _sentActionNotification; 
+    // If this class has been waiting for a while and the gift bag hasn't come to pick up some gift,
+    // it sends an Action Notification to make the gift back pick up the gifts. This variable marks 
+    // that we sent the alert
     public static event Action takeGiftIdsEvent;
     public static event Action SendActionNotificationEvent;
 

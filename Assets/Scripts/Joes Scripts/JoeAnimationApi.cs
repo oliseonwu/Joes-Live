@@ -20,22 +20,27 @@ public class JoeAnimationApi : MonoBehaviour
         subscribeToEvents();
     }
 
-    public void PlayGiftAnim(String giftId, float waitTime = 0, int option = 1 )
+    public void PlayGiftAnim(String giftId, float delay = 0, int option = 1 )
     {
         // Converts gift names to the actual animations
         // Option is used select an animation when a gift has multiple animations.
-        // waitTime is the time in seconds to wait before playing the animation
+        // delay is the time in seconds to wait before playing the animation
         joesAnimParameters.ClearAllSetBool();
+        
+        OriginalIdleState(); 
+        // reset our custom int param because we will be 
+        // using animation triggers now
+        
         switch (giftId)
         {
             case "5655":
-                Invoke(nameof(G_roseAnim_1), waitTime);
+                Invoke(nameof(G_roseAnim_1), delay);
                 break;
             case "6652":
-                Invoke(nameof(G_LightningBolt), waitTime);
+                Invoke(nameof(G_LightningBolt), delay);
                 break;
             case "6427":
-                Invoke(nameof(G_HatandMustache), waitTime);
+                Invoke(nameof(G_HatandMustache), delay);
                 break;
         }
     }
@@ -46,7 +51,7 @@ public class JoeAnimationApi : MonoBehaviour
         
         if (stateId == -1) // means script didn't chose an idle state
         {
-            stateId = RandomNumberGenerator.GetInt32(0, 9); // set to a random idle state
+            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
         }
         
         stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
@@ -54,6 +59,7 @@ public class JoeAnimationApi : MonoBehaviour
         stateIdOveride = 0;
         
         joesAnimParameters.ClearAllSetBool();
+        OriginalIdleState();
 
         switch (stateId)
         {
@@ -61,17 +67,17 @@ public class JoeAnimationApi : MonoBehaviour
                 OriginalIdleState();
                 break;
             case 1: // Hands on heaps look left and right
-                joesAnimParameters.setIntParam(1, JoesAnimParameters.AnimState1);
+                joesAnimParameters.setIntParam(1,  true);
                 break;
             case 2: // Hands on heaps look left and right(one leg)
-                joesAnimParameters.setIntParam(2, JoesAnimParameters.AnimState1);
+                joesAnimParameters.setIntParam(2,  true);
                 break;
             case 3: // Hi
                 Hi();
                 _chatBubble.SetChatText("Hi!!", 4);
                 break;
             case 4: // bend left
-                joesAnimParameters.setIntParam(4, JoesAnimParameters.AnimState1, 5);
+                joesAnimParameters.setIntParam(4,  false);
                 break;
             case 5:
                 Hi();
@@ -83,16 +89,28 @@ public class JoeAnimationApi : MonoBehaviour
                                         "<sprite name=Lightning>,<sprite name=Cowboy> gifts and Watch me react"
                     , 6f);
                 break;
-            case 7: // Tap Tap Tap 1
-                joesAnimParameters.setIntParam(7, JoesAnimParameters.AnimState1, 0.5f);
+            case 7: // Head scratch
+                joesAnimParameters.setIntParam(7,  false);
                 break;
-            case 8: // Head scratch
-                joesAnimParameters.setIntParam(8, JoesAnimParameters.AnimState1, 0.5f);
+            case 2000: // Tap Tap Tap 1
+                joesAnimParameters.setIntParam(2000,  false);
                 break;
         }
     }
-    
-    
+
+    IEnumerator playAnimationByAnimationKey(AnimationDatabase.AnimationKey animationKey, float delay)
+    {
+        
+        int animationId = AnimationDatabase.GetStateId(animationKey);
+        yield return new WaitForSeconds(delay);
+        playIdelAnimation(animationId);
+
+    }
+
+    public void PAnimByAnimKeyWrapper(AnimationDatabase.AnimationKey animationKey, float delay)
+    {
+        StartCoroutine(playAnimationByAnimationKey(animationKey, delay));
+    }
 
     private void G_roseAnim_1()
     {
@@ -111,12 +129,12 @@ public class JoeAnimationApi : MonoBehaviour
 
     private void Hi()
     {
-        joesAnimParameters.setIntParam(3, JoesAnimParameters.AnimState1, 0.5f);
+        joesAnimParameters.setIntParam(3,  false);
     }
 
     public void OriginalIdleState()
     {
-        joesAnimParameters.setIntParam(0, JoesAnimParameters.AnimState1);
+        joesAnimParameters.setIntParam(0,  true);
     }
 
     public void sad()

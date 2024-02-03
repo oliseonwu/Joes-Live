@@ -8,14 +8,12 @@ public class JoesAnimParameters : MonoBehaviour
     // This class just holds the name of parameters
     // for joes the animation
     public Animator _animator;
-    public  List<String> checkedParams = new List<string>();
+    public  List<String> checkedParams = new();
     public static String G_roseTrigger = "G_Rose_1";
     public static String G_LightningBolt1Trigger = "G_Lightning";
     public static String G_LightningBolt2Trigger = "G_Lightning 2";
     public static String G_HatandMustacheTrigger = "G_Cow boy";
     
-    public static String AnimState1 = "Animation State";
-    private Coroutine intParamCoroutine = null;
 
 
     private void Start()
@@ -39,6 +37,7 @@ public class JoesAnimParameters : MonoBehaviour
         // add the newly set bool to the list
         checkedParams.Add(boolParamName);
     }
+    
 
     /// <summary>
     /// Unchecks every bool params in the
@@ -63,32 +62,29 @@ public class JoesAnimParameters : MonoBehaviour
 
     /// <summary>
     /// Used to simulate the types of param the animator uses
-    /// <param name="stateId"> the animation Id state Joe's
-    /// currently in</param>
+    /// <param name="stateId"> the animation Id state to
+    /// set Joe's animation state to
+    /// (Check AnimationDatabase class) </param>
     /// <param name="intParamName"> the name of the int param</param>
-    /// <param name="waitTime"> How long before the value is reset</param>
+    /// <param name="isTypeBool"> marks if this stateId is of
+    /// type bool</param>
     /// </summary>
-    public void setIntParam(int stateId, string intParamName, float waitTime =0)
+    public void setIntParam(int stateId,  bool isTypeBool, string intParamName = "Animation State")
     {
-        if (intParamCoroutine != null)
-        {
-            StopCoroutine(intParamCoroutine);
-            intParamCoroutine = null;
-        }
+        // If type bool, leave int state when checked
+        // else, reset int state after 0.5 sec
         
         _animator.SetInteger(intParamName, stateId);
 
         // used to simulate a trigger param or a bool with a timer
-        if (waitTime != 0)
+        if (!isTypeBool)
         {
-            intParamCoroutine = StartCoroutine(resetIntParam(intParamName, waitTime));
+            StartCoroutine(resetIntParam(intParamName, 0.5f));
         }
     }
 
-
     private IEnumerator resetIntParam(string intParamName, float waitTime)
     {
-        intParamCoroutine = null;
         yield return new WaitForSeconds(waitTime); // Wait for a short duration
         _animator.SetInteger(intParamName, 0);
     }

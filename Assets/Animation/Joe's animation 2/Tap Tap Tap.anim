@@ -13799,6 +13799,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
+  - time: 3.1166666
+    functionName: playNextAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
   - time: 3.1666667
     functionName: WhooshSoundHighPitch
     data: 

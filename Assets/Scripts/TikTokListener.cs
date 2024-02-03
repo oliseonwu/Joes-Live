@@ -8,6 +8,7 @@ public class TikTokListener : MonoBehaviour
 {
     private WebSocket ws;
     public GiftBatchHandler giftBatchHandler;
+    public TikTokInteractionTracker tikTokInteractionTracker;
     private int reconnectAttempts = 0;
     private const int MaxReconnectAttempts = 10;
     private float reconnectDelay = 1f; // Delay in seconds
@@ -26,17 +27,23 @@ public class TikTokListener : MonoBehaviour
 
     void OnMessageReceived(object Serverws,  MessageEventArgs e)
     {
-         String[] data = e.Data.Split(",");
+        String[] data = e.Data.Split(",");
+         String msgType = data[0].Trim();
 
-        if (data[0].Trim().Equals("gift") )
-        {
-            UnityMainThreadDispatcher.Enqueue(()=>giftBatchHandler.addToGiftIdContainer(data[3], 1));
-            
+         switch (msgType)
+         {
+          case "gift":
+              UnityMainThreadDispatcher.Enqueue(()=>
+                  giftBatchHandler.addToGiftIdContainer(data[3], 1));
+              break;
+          case "likes":
+              tikTokInteractionTracker.updateNumOfLikes(Int32.Parse(data[3]));
+              break;
+         }
 
-        }
-        
-        
-        // {"type":"gift","uniqueId":"1rabbitcatcher","giftName":"Rose"}
+
+
+         // {"type":"gift","uniqueId":"1rabbitcatcher","giftName":"Rose"}
     }
 
     private void OnWebSocketClosed(object sender, CloseEventArgs e)
