@@ -105,7 +105,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: Animation State
-    m_EventTreshold: 8
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6374059896066587647}
   m_Solo: 0
@@ -455,10 +455,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 7
-    m_ConditionEvent: Animation State
-    m_EventTreshold: 4
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2872876908597993137}
   m_Solo: 0
@@ -517,7 +514,7 @@ AnimatorStateMachine:
     m_Position: {x: -200, y: -620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 711204322104093579}
-    m_Position: {x: -165, y: -555, z: 0}
+    m_Position: {x: -220, y: -710, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3370140018830438868}
     m_Position: {x: -750, y: -160, z: 0}
@@ -533,6 +530,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -4340755159058988501}
     m_Position: {x: -650, y: -770, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7044548059919074430}
+    m_Position: {x: -615, y: -705, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 5923445994702625925}
@@ -1816,6 +1816,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &7044548059919074430
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Pointing to Chat bubble
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 62be350b9b5d57a4dad7db3f5957ebd9, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &7080366893584331758
 AnimatorState:
   serializedVersion: 6
