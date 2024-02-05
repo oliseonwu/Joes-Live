@@ -5014,6 +5014,9 @@ MonoBehaviour:
   giftBag: {fileID: 2107105827}
   joeAnimationApi: {fileID: 701122380}
   ContextManager: {fileID: 701122388}
+  contexAnimDelay: 2
+  _inPlayMode: 0
+  playAnimationById: 0
 --- !u!114 &701122387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,6 +5043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad029f0ab5877804ab312e181301afb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sendNotification: 1
 --- !u!1001 &703009391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6822,7 +6826,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173654327}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.06482848, y: 0, z: 0, w: 0.99789643}
   m_LocalPosition: {x: 0.651, y: 1.868, z: 9.9}
   m_LocalScale: {x: 0.14484926, y: 0.14484926, z: 0.14484926}
   m_ConstrainProportionsScale: 1
@@ -6831,7 +6835,7 @@ Transform:
   - {fileID: 1671345408}
   m_Father: {fileID: 1813064696}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.434, y: 0, z: 0}
 --- !u!114 &1173654329
 MonoBehaviour:
   m_ObjectHideFlags: 0
