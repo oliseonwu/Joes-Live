@@ -6,7 +6,7 @@ using UnityEngine;
 public class Utilities : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static bool showLogs = false;
+    public static bool showLogs = true;
     void Start()
     {
         
