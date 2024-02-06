@@ -2,20 +2,32 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+
 // This is an extention of our TikTok listener. It tracks
 // Interactions that our the ticktok api can't track.
 // Once a Interaction happens, it sends an event
 public class TikTokInteractionTracker : MonoBehaviour
 {
     public static event EventHandler<TTInteractionTrackerEventArgs> OnInteraction;
+    
+    // If this LIKE_THRESHOLD is met, Joe's will
+    // say thanks for the likes with more excitement.
+    // But if we get some likes but if the LIKE_THRESHOLD
+    // is not met, joe will just say thanks
+    // for the likes but not with too much excitement. 
     private static float LIKE_THRESHOLD = 2;
     private static float LIKE_CHECK_INTERVAL_IN_SEC = 30;
+    private float likeGoalAnnouncementIntervalInSec = 120; 
     public int _numOfLikesOnTTLive;
+    public TikTokGoals tikTokGoals;
     
 
     private void Start()
     {
         StartCoroutine(TrackLikesOverTime());
+        StartCoroutine(TrackLikeGoalAnnouncement());
     }
 
     public void updateNumOfLikes(int numOfLikes)
@@ -31,13 +43,36 @@ public class TikTokInteractionTracker : MonoBehaviour
             int likesAtStartTime = _numOfLikesOnTTLive;
 
             yield return new WaitForSeconds(LIKE_CHECK_INTERVAL_IN_SEC);
-            if ((_numOfLikesOnTTLive - likesAtStartTime) < LIKE_THRESHOLD)
+
+            if (_numOfLikesOnTTLive >= tikTokGoals.getLikeGoal()) // if we hit our live goal
+            {
+                OnInteraction?.Invoke(this, new TTInteractionTrackerEventArgs(
+                    TTInteractionTrackerEventArgs.InteractionTypes.ReachedLikeGoal)); 
+            }
+            else if ((_numOfLikesOnTTLive - likesAtStartTime) < LIKE_THRESHOLD)
             {
                 OnInteraction?.Invoke(this, new TTInteractionTrackerEventArgs(
                     TTInteractionTrackerEventArgs.InteractionTypes.LowLikes));
             }
         }
     }
+
     
-    
+    private IEnumerator TrackLikeGoalAnnouncement()
+    {
+        // Tracks when to sends an event after a wait time
+        // which makes joe state is like goal.
+
+        while (true)
+        {
+           likeGoalAnnouncementIntervalInSec =  Random.Range(0, 100);
+           
+           yield return new WaitForSeconds(likeGoalAnnouncementIntervalInSec);
+           
+           OnInteraction?.Invoke(this, new TTInteractionTrackerEventArgs(
+               TTInteractionTrackerEventArgs.InteractionTypes.LikeGoalAnnouncement));
+        }
+        
+        
+    }
 }

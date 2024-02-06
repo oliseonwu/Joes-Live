@@ -12,6 +12,7 @@ public class JoeAnimationApi : MonoBehaviour
     public SpawnManager spawnManager;
     public JoesAnimParameters joesAnimParameters;
     [SerializeField] private ChatBubble _chatBubble;
+    public TikTokGoals tikTokGoals;
     public int stateIdOveride = 7;
 
     void Start()
@@ -94,6 +95,10 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 2000: // Tap Tap Tap 1
                 joesAnimParameters.setIntParam(2000,  false);
+                break;
+            case 2001: // Live goal announcement
+                joesAnimParameters.setIntParam(2001,  false);
+                _chatBubble.SetChatText($"{tikTokGoals.getLikeGoal()} likes to see some fireworks!", 6f);
                 break;
         }
     }

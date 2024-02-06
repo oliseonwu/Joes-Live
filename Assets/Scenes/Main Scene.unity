@@ -1937,6 +1937,7 @@ GameObject:
   - component: {fileID: 605743184}
   - component: {fileID: 605743187}
   - component: {fileID: 605743186}
+  - component: {fileID: 605743188}
   m_Layer: 0
   m_Name: TikTok Alerts
   m_TagString: Untagged
@@ -1957,7 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   giftBatchHandler: {fileID: 1575916146}
-  tikTokInteractionTracker: {fileID: 0}
+  tikTokInteractionTracker: {fileID: 605743187}
 --- !u!4 &605743185
 Transform:
   m_ObjectHideFlags: 0
@@ -2003,6 +2004,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _numOfLikesOnTTLive: 0
+  tikTokGoals: {fileID: 605743188}
+--- !u!114 &605743188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605743183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b7639c8fb4d5324ab0fe4a3c2b2576e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LIKE_GOAL_INCREASE_FACTOR: 1.5
 --- !u!1001 &632822504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4779,6 +4794,7 @@ MonoBehaviour:
   spawnManager: {fileID: 205556459}
   joesAnimParameters: {fileID: 701122387}
   _chatBubble: {fileID: 1173654329}
+  tikTokGoals: {fileID: 605743188}
   stateIdOveride: 0
 --- !u!65 &701122381
 BoxCollider:

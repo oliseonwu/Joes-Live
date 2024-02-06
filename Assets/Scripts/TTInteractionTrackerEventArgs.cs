@@ -7,7 +7,7 @@ using UnityEngine;
 // It allows us to pass information about the interaction
 public class TTInteractionTrackerEventArgs : EventArgs
 {
-    public enum  InteractionTypes{LowLikes};
+    public enum  InteractionTypes{LowLikes, ReachedLikeGoal, LikeGoalAnnouncement};
     public InteractionTypes type;
     
 

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class AnimationDatabase: MonoBehaviour
 {
-    public enum AnimationKey { Idle, TapTapTap }
+    public enum AnimationKey { Idle, TapTapTap, LikeGoalAnnouncement }
     
     private static Dictionary<AnimationKey, int> animationDic = new Dictionary<AnimationKey, int>
     {
         { AnimationKey.Idle, 0 },
         { AnimationKey.TapTapTap, 2000},
+        { AnimationKey.LikeGoalAnnouncement, 2001},
     };
     
     public static int GetStateId(AnimationKey animationKey)

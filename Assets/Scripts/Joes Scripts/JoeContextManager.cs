@@ -177,6 +177,22 @@ public class JoeContextManager : MonoBehaviour
                     AnimationDatabase.AnimationKey.TapTapTap, 
                     1);
                 break;
+            
+            case TTInteractionTrackerEventArgs.
+                InteractionTypes.ReachedLikeGoal:
+                // Animation needed
+                break;
+            
+            case TTInteractionTrackerEventArgs.
+                InteractionTypes.LikeGoalAnnouncement:
+                
+                Utilities.Print(nameof(JoeContextManager), "Live goal announce!");
+                
+                RegisterAnimationForContext(
+                    AnimationDatabase.AnimationKey.LikeGoalAnnouncement, 
+                    1);
+                break;
+                
         }
         
         Invoke(nameof(SendAlert), 0.5f);
