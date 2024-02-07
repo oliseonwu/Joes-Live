@@ -51,3 +51,12 @@ TagManager:
   - name: mouth
     uniqueID: 3733429717
     locked: 0
+  - name: background
+    uniqueID: 3796991377
+    locked: 0
+  - name: House Layer
+    uniqueID: 3816629861
+    locked: 0
+  - name: front1
+    uniqueID: 2716447715
+    locked: 0
