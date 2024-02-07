@@ -8,13 +8,16 @@ using Random = UnityEngine.Random;
 public class JoesAnimationManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    public bool pause;
+    public bool _inPlayMode;
     public GiftBag giftBag;
     public JoeAnimationApi joeAnimationApi;
     public JoeContextManager ContextManager;
     public float contexAnimDelay = 2;
-    public bool _inPlayMode;
+    
     private bool _inIdleState = false;
     public int playAnimationById = 0;
+    
 
     // Since joe has multiple default animations
     // this keeps track of the amount of time 
@@ -61,6 +64,11 @@ public class JoesAnimationManager : MonoBehaviour
     
     public void playNextAnimation(float delay)
     {
+        if (pause)
+        {
+            return;
+        }
+        
         if (!giftBag.isGiftBagEmpty(this))
         {
             SetToPlayMode();
@@ -95,6 +103,11 @@ public class JoesAnimationManager : MonoBehaviour
     
     private void playIdleAnimation()
     {
+        if (pause)
+        {
+            return;
+        }
+        
         _idlePoseChangeFrequency = Random.Range(
             minimumTimeForIdelPoseChange, 
             maximumTimeForIdelPoseChange);
