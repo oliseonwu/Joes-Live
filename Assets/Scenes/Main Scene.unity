@@ -2297,6 +2297,7 @@ GameObject:
   - component: {fileID: 543753540}
   - component: {fileID: 543753539}
   - component: {fileID: 543753538}
+  - component: {fileID: 543753541}
   m_Layer: 0
   m_Name: FireWorks
   m_TagString: Untagged
@@ -2516,6 +2517,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &543753541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543753534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318b08e29ff696949abcd9f5a7bae074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &570004802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,7 +2671,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605743183}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00cf240aa37fdc04a992645934f43c65, type: 3}
   m_Name: 
@@ -2723,6 +2736,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7639c8fb4d5324ab0fe4a3c2b2576e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _likeGoal: 0
+  ttInteractionTracker: {fileID: 605743187}
   LIKE_GOAL_INCREASE_FACTOR: 1.5
 --- !u!1001 &632822504
 PrefabInstance:

@@ -68,6 +68,14 @@ public class JoesAnimationManager : MonoBehaviour
         {
             return;
         }
+
+        if (ContextManager.hasContexAnimationOnLevel(3))
+        {
+            SetToPlayMode();
+            joeAnimationApi.PAnimByAnimKeyWrapper(
+                ContextManager.getNextContexAtLevel(3), contexAnimDelay);
+            return;
+        }
         
         if (!giftBag.isGiftBagEmpty(this))
         {

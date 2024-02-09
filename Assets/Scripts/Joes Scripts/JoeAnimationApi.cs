@@ -98,7 +98,11 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 2001: // Live goal announcement
                 joesAnimParameters.setIntParam(2001,  false);
-                _chatBubble.SetChatText($"{tikTokGoals.getLikeGoal()} likes to see some fireworks!", 6f);
+                _chatBubble.SetChatText($"{tikTokGoals.GetLikeGoal()} likes to see some fireworks!", 6f);
+                break;
+            case 2002: // Live goal announcement
+                joesAnimParameters.setIntParam(2002,  false);
+                _chatBubble.SetChatText($"Thank you guys for getting us to {tikTokGoals.GetPreviousLikeGoal()} likes.", 6f);
                 break;
         }
     }
@@ -114,6 +118,7 @@ public class JoeAnimationApi : MonoBehaviour
 
     public void PAnimByAnimKeyWrapper(AnimationDatabase.AnimationKey animationKey, float delay)
     {
+        // Play animation by animation Key
         StartCoroutine(playAnimationByAnimationKey(animationKey, delay));
     }
 

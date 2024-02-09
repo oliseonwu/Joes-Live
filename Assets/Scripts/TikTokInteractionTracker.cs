@@ -35,6 +35,11 @@ public class TikTokInteractionTracker : MonoBehaviour
         // At this point, I dont care about concurency issue.
         _numOfLikesOnTTLive = numOfLikes;
     }
+
+    public int getNumberOfLikesOnTTLive()
+    {
+        return _numOfLikesOnTTLive;
+    }
     
     private IEnumerator TrackLikesOverTime()
     {
@@ -44,7 +49,7 @@ public class TikTokInteractionTracker : MonoBehaviour
 
             yield return new WaitForSeconds(LIKE_CHECK_INTERVAL_IN_SEC);
 
-            if (_numOfLikesOnTTLive >= tikTokGoals.getLikeGoal()) // if we hit our live goal
+            if (_numOfLikesOnTTLive >= tikTokGoals.GetLikeGoal()) // if we hit our like goal
             {
                 OnInteraction?.Invoke(this, new TTInteractionTrackerEventArgs(
                     TTInteractionTrackerEventArgs.InteractionTypes.ReachedLikeGoal)); 
@@ -54,6 +59,8 @@ public class TikTokInteractionTracker : MonoBehaviour
                 OnInteraction?.Invoke(this, new TTInteractionTrackerEventArgs(
                     TTInteractionTrackerEventArgs.InteractionTypes.LowLikes));
             }
+            // else(when we dont hit our goal or like threshold),
+            // joe should say "thanks for the likes guys"
         }
     }
 
