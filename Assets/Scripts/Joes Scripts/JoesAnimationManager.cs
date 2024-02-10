@@ -16,7 +16,6 @@ public class JoesAnimationManager : MonoBehaviour
     public float contexAnimDelay = 2;
     
     private bool _inIdleState = false;
-    public int playAnimationById = 0;
     
 
     // Since joe has multiple default animations

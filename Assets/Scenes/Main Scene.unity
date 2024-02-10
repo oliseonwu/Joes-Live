@@ -2354,8 +2354,8 @@ VisualEffect:
   m_GameObject: {fileID: 543753534}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: b3ed17e80d7ee0b4fb9fd76cece2b750, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: OnPlay(Added to Stop play on awake)
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_ResourceVersion: 1
@@ -2529,6 +2529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318b08e29ff696949abcd9f5a7bae074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireworksVfx: {fileID: 543753536}
+  fireWorksDurationInSec: 20
 --- !u!1 &570004802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,7 +2673,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605743183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00cf240aa37fdc04a992645934f43c65, type: 3}
   m_Name: 
@@ -5541,6 +5543,7 @@ MonoBehaviour:
   _chatBubble: {fileID: 1173654329}
   tikTokGoals: {fileID: 605743188}
   stateIdOveride: 0
+  fireworksVfxController: {fileID: 543753541}
 --- !u!65 &701122381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5798,7 +5801,6 @@ MonoBehaviour:
   joeAnimationApi: {fileID: 701122380}
   ContextManager: {fileID: 701122388}
   contexAnimDelay: 2
-  playAnimationById: 0
 --- !u!114 &701122387
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class JoeAnimationApi : MonoBehaviour
     [SerializeField] private ChatBubble _chatBubble;
     public TikTokGoals tikTokGoals;
     public int stateIdOveride = 7;
+    public FireWorks fireworksVfxController;
 
     void Start()
     {
@@ -101,6 +102,7 @@ public class JoeAnimationApi : MonoBehaviour
                 _chatBubble.SetChatText($"{tikTokGoals.GetLikeGoal()} likes to see some fireworks!", 6f);
                 break;
             case 2002: // Live goal announcement
+                fireworksVfxController.StartFireWorks();
                 joesAnimParameters.setIntParam(2002,  false);
                 _chatBubble.SetChatText($"Thank you guys for getting us to {tikTokGoals.GetPreviousLikeGoal()} likes.", 6f);
                 break;
