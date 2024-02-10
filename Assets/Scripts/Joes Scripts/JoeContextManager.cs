@@ -25,8 +25,9 @@ public class JoeContextManager : MonoBehaviour
     private void SendAlert()
     {
         // Sends an alert that there is a new context animation.
-        // We only send a notification when a failed attempt
-        // was made when getting some animations.
+        // We only send a notification when a an attempt was
+        // made using hasContexAnimationOnLevel(1) and it returns 
+        // false.
 
         if (SendNotification)
         {
@@ -66,9 +67,11 @@ public class JoeContextManager : MonoBehaviour
                 chosenContextLevel = _level1Contexts;
                 break;
         }
-
+        
         chosenContextLevel.Add(animationKey);
         IsBusy = false;
+        
+        Invoke(nameof(SendAlert), 0.5f);
     }
 
     private bool IsBusy
@@ -180,7 +183,12 @@ public class JoeContextManager : MonoBehaviour
             
             case TTInteractionTrackerEventArgs.
                 InteractionTypes.ReachedLikeGoal:
-                // Animation needed
+                
+                // In the future, we will have multiple
+                // celebration animation
+                RegisterAnimationForContext(
+                    AnimationDatabase.AnimationKey.Celebrate1,
+                    3);
                 break;
             
             case TTInteractionTrackerEventArgs.
@@ -194,8 +202,6 @@ public class JoeContextManager : MonoBehaviour
                 break;
                 
         }
-        
-        Invoke(nameof(SendAlert), 0.5f);
     }
 
     private void subscribeToEvents()

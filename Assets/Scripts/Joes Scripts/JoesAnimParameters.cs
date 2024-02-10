@@ -67,7 +67,10 @@ public class JoesAnimParameters : MonoBehaviour
     /// (Check AnimationDatabase class) </param>
     /// <param name="intParamName"> the name of the int param</param>
     /// <param name="isTypeBool"> marks if this stateId is of
-    /// type bool</param>
+    /// type bool. If true, it means the int state has to be
+    /// set through out the animation to keep the animation going.
+    /// Else It will set the int state for 0.5 seconds then reset it
+    /// which makes the state Id act as animation type trigger</param>
     /// </summary>
     public void setIntParam(int stateId,  bool isTypeBool, string intParamName = "Animation State")
     {

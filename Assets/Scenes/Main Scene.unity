@@ -2297,6 +2297,7 @@ GameObject:
   - component: {fileID: 543753540}
   - component: {fileID: 543753539}
   - component: {fileID: 543753538}
+  - component: {fileID: 543753541}
   m_Layer: 0
   m_Name: FireWorks
   m_TagString: Untagged
@@ -2353,8 +2354,8 @@ VisualEffect:
   m_GameObject: {fileID: 543753534}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: b3ed17e80d7ee0b4fb9fd76cece2b750, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: OnPlay(Added to Stop play on awake)
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_ResourceVersion: 1
@@ -2389,7 +2390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543753534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.17, y: 3.84, z: 13.39}
+  m_LocalPosition: {x: -4.97, y: 3.84, z: 13.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2516,6 +2517,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &543753541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543753534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318b08e29ff696949abcd9f5a7bae074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireworksVfx: {fileID: 543753536}
+  fireWorksDurationInSec: 20
 --- !u!1 &570004802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,6 +2738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7639c8fb4d5324ab0fe4a3c2b2576e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _likeGoal: 0
+  ttInteractionTracker: {fileID: 605743187}
   LIKE_GOAL_INCREASE_FACTOR: 1.5
 --- !u!1001 &632822504
 PrefabInstance:
@@ -5526,6 +5543,7 @@ MonoBehaviour:
   _chatBubble: {fileID: 1173654329}
   tikTokGoals: {fileID: 605743188}
   stateIdOveride: 0
+  fireworksVfxController: {fileID: 543753541}
 --- !u!65 &701122381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5783,7 +5801,6 @@ MonoBehaviour:
   joeAnimationApi: {fileID: 701122380}
   ContextManager: {fileID: 701122388}
   contexAnimDelay: 2
-  playAnimationById: 0
 --- !u!114 &701122387
 MonoBehaviour:
   m_ObjectHideFlags: 0
