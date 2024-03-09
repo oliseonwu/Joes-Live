@@ -7,12 +7,21 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.harumak.urpgrabpass": {
+      "version": "https://github.com/Haruma-K/URPGrabPass.git?path=/Assets/URPGrabPass",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "10.2.0"
+      },
+      "hash": "e40a9fc0b29b3e2adab2d67e35a53b8fa4ff5c3d"
+    },
     "com.unity.2d.animation": {
-      "version": "7.0.12",
+      "version": "7.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.2d.common": "6.0.6",
+        "com.unity.2d.common": "6.0.7",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.uielements": "1.0.0"
@@ -20,7 +29,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.common": {
-      "version": "6.0.6",
+      "version": "6.0.7",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -141,6 +150,15 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {

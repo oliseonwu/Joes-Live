@@ -53,7 +53,7 @@ public class JoeAnimationApi : MonoBehaviour
         
         if (stateId == -1) // means script didn't chose an idle state
         {
-            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
+            stateId = RandomNumberGenerator.GetInt32(0, 9); // set to a random idle state
         }
         
         stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
@@ -93,6 +93,10 @@ public class JoeAnimationApi : MonoBehaviour
                 break;
             case 7: // Head scratch
                 joesAnimParameters.setIntParam(7,  false);
+                break;
+            case 8:
+                Hi(); 
+                _chatBubble.SetChatText("Happy valentines day guys!", 6f); 
                 break;
             case 2000: // Tap Tap Tap 1
                 joesAnimParameters.setIntParam(2000,  false);

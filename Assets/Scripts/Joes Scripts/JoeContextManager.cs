@@ -188,7 +188,7 @@ public class JoeContextManager : MonoBehaviour
                 // celebration animation
                 RegisterAnimationForContext(
                     AnimationDatabase.AnimationKey.Celebrate1,
-                    3);
+                    2);
                 break;
             
             case TTInteractionTrackerEventArgs.
