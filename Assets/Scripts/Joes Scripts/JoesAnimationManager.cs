@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class JoesAnimationManager : MonoBehaviour
@@ -63,6 +65,7 @@ public class JoesAnimationManager : MonoBehaviour
     
     public void playNextAnimation(float delay)
     {
+        int choiceBetweenGiftAndContext;
         if (pause)
         {
             return;
@@ -75,11 +78,29 @@ public class JoesAnimationManager : MonoBehaviour
                 ContextManager.getNextContexAtLevel(3), contexAnimDelay);
             return;
         }
+
+        if (!giftBag.isGiftBagEmpty(this) &&
+            ContextManager.hasContexAnimationOnLevel(2))
+        {
+            Debug.Log("We in the middle");
+            playGiftOrContextLevel2(delay);
+            return;
+        }
+
+        
         
         if (!giftBag.isGiftBagEmpty(this))
         {
             SetToPlayMode();
             joeAnimationApi.PlayGiftAnim(giftBag.GetARandomGift(), delay);
+            return;
+        }
+        
+        if (ContextManager.hasContexAnimationOnLevel(2))
+        {
+            SetToPlayMode();
+            joeAnimationApi.PAnimByAnimKeyWrapper(
+                ContextManager.getNextContexAtLevel(2), contexAnimDelay);  
             return;
         }
         
@@ -98,6 +119,29 @@ public class JoesAnimationManager : MonoBehaviour
             Invoke(nameof(playIdleAnimation), 5f);
         }
         
+    }
+
+    private void playGiftOrContextLevel2(float animationDelay)
+    {
+        int choiceBetweenGiftAndContext = RandomNumberGenerator.GetInt32(0, 2);
+        // 1 -- Gift
+        // 0 -- context Level 2
+
+        SetToPlayMode();
+        
+        switch (choiceBetweenGiftAndContext)
+        {
+            case 0:
+                joeAnimationApi.PAnimByAnimKeyWrapper(
+                    ContextManager.getNextContexAtLevel(2), contexAnimDelay);  
+                break;
+            case 1: 
+                joeAnimationApi.PlayGiftAnim(giftBag.GetARandomGift(), animationDelay);
+                break;
+            default: // play gift by default
+                joeAnimationApi.PlayGiftAnim(giftBag.GetARandomGift(), animationDelay);
+                break;
+        }
     }
     
     private void playNextAnimation2()

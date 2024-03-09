@@ -10,7 +10,8 @@ public class TikTokGoals : MonoBehaviour
     private int previousLikeGoal = 0;
     public TikTokInteractionTracker ttInteractionTracker;
     [Range(0, 2)] public  float LIKE_GOAL_INCREASE_FACTOR = 1.2f;
-    private int DEFUALT_LIKE_GOAL = 500;
+    private int DEFUALT_LIKE_GOAL = 200;
+    public int likeGoalIncreaseFactor = 200;
     
     void Start()
     {
@@ -43,7 +44,7 @@ public class TikTokGoals : MonoBehaviour
            return;
        }
 
-       _likeGoal = numOfLikesOnTTLive + 1000;
+       _likeGoal = numOfLikesOnTTLive + likeGoalIncreaseFactor;
        // _likeGoal = Mathf.FloorToInt(numOfLikesOnTTLive 
        //                              * LIKE_GOAL_INCREASE_FACTOR);
     }
