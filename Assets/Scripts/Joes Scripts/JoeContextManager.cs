@@ -32,7 +32,7 @@ public class JoeContextManager : MonoBehaviour
         if (SendNotification)
         {
             SendNotification = false;
-            Debug.Log("JoeContextManager -> New contexts animations available");
+            Utilities.Print("JoeContextManager", "New contexts animations available" );
             GetNewContextEvent?.Invoke();
         }
     }

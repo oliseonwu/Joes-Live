@@ -52,7 +52,6 @@ public class TikTokGoals : MonoBehaviour
     private void TTInteractionEventHandler(object sender,
         TTInteractionTrackerEventArgs eventArg)
     {
-        Debug.Log("HHHHHHH");
         switch (eventArg.type)
         {
            case TTInteractionTrackerEventArgs.
