@@ -5867,7 +5867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181972aabebc433419a0712dabbd4750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause: 1
+  pause: 0
   _inPlayMode: 0
   giftBag: {fileID: 2107105827}
   joeAnimationApi: {fileID: 701122380}
