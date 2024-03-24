@@ -60,3 +60,6 @@ TagManager:
   - name: front1
     uniqueID: 2716447715
     locked: 0
+  - name: Character
+    uniqueID: 936777925
+    locked: 0

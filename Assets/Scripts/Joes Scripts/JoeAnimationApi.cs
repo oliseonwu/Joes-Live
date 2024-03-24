@@ -53,7 +53,7 @@ public class JoeAnimationApi : MonoBehaviour
         
         if (stateId == -1) // means script didn't chose an idle state
         {
-            stateId = RandomNumberGenerator.GetInt32(0, 8); // set to a random idle state
+            stateId = RandomNumberGenerator.GetInt32(0, 9); // set to a random idle state
         }
         
         stateId = (stateIdOveride == 0)? stateId: stateIdOveride; // overide the state when applicable
@@ -88,18 +88,15 @@ public class JoeAnimationApi : MonoBehaviour
             case 6:
                 Hi();
                 _chatBubble.SetChatText("Surprise me with <sprite name=Rose>," +
-                                        "<sprite name=Lightning>,<sprite name=Cowboy> gifts and Watch me react"
+                                        "<sprite name=Lightning>,<sprite name=" +
+                                        "Cowboy> gifts and Watch me react"
                     , 6f);
                 break;
             case 7: // Head scratch
                 joesAnimParameters.setIntParam(7,  false);
                 break;
-            case 8:
-                Hi(); 
-                _chatBubble.SetChatText("Happy valentines day guys!", 6f); 
-                break;
-            case 9: // Walk around (NOT DONE YET)
-                joesAnimParameters.setIntParam(9,  false); 
+            case 8: // Walk To house
+                joesAnimParameters.setIntParam(8,  false); 
                 break;
             case 2000: // Tap Tap Tap 1
                 joesAnimParameters.setIntParam(2000,  false);
@@ -112,6 +109,10 @@ public class JoeAnimationApi : MonoBehaviour
                 fireworksVfxController.StartFireWorks();
                 joesAnimParameters.setIntParam(2002,  false);
                 _chatBubble.SetChatText($"Thank you guys for getting us to {tikTokGoals.GetPreviousLikeGoal()} likes.", 6f);
+                break;
+            case 10000: //Event animation starts from 10,000
+                Hi(); 
+                _chatBubble.SetChatText("Happy valentines day guys!", 6f); 
                 break;
         }
     }

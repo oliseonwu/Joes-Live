@@ -82,7 +82,6 @@ public class JoesAnimationManager : MonoBehaviour
         if (!giftBag.isGiftBagEmpty(this) &&
             ContextManager.hasContexAnimationOnLevel(2))
         {
-            Debug.Log("We in the middle");
             playGiftOrContextLevel2(delay);
             return;
         }
